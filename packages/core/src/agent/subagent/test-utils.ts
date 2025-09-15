@@ -344,6 +344,7 @@ export function createMockAgentWithStubs(options: CreateMockAgentOptions = {}) {
         request: {
           body: {},
         },
+        reasoning: "<REASONING>",
         providerMetadata: undefined,
         toJsonResponse: vi.fn(),
       } as GenerateObjectResultWithContext<z.infer<T>>;
