@@ -2082,7 +2082,7 @@ importers:
         specifier: ^0.0.9
         version: link:../internal
       '@voltagent/logger':
-        specifier: ^1.0.0
+        specifier: 1.x
         version: link:../logger
       ts-pattern:
         specifier: ^5.7.1
