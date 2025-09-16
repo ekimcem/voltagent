@@ -1,5 +1,68 @@
 # @voltagent/server-hono
 
+## 1.0.5-next.2
+
+### Patch Changes
+
+- [`7d05717`](https://github.com/VoltAgent/voltagent/commit/7d057172029e594b8fe7c77e7fe49fdb3c937ac3) Thanks [@omeraplak](https://github.com/omeraplak)! - fix: add Zod v3/v4 compatibility layer for @hono/zod-openapi
+  - Added dynamic detection of Zod version using `toJSONSchema` method check
+  - Conditionally loads correct @hono/zod-openapi version based on installed Zod
+  - Fixed route definitions to use enhanced `z` from zod-openapi-compat instead of extending base schemas
+  - Resolves `.openapi()` method not found errors when using Zod v4
+
+## 1.0.5-next.1
+
+### Patch Changes
+
+- [#551](https://github.com/VoltAgent/voltagent/pull/551) [`77a3f64`](https://github.com/VoltAgent/voltagent/commit/77a3f64dea6e8a06fbbd72878711efa9ceb90bc3) Thanks [@omeraplak](https://github.com/omeraplak)! - feat: add Zod v4 support (backwards-compatible with v3)
+
+  What’s new
+  - Core + server now support `zod` v4 while keeping v3 working.
+  - Peer ranges expanded to `"zod": "^3.25.0 || ^4.0.0"`.
+  - JSON Schema → Zod conversion handles both versions:
+    - Uses `zod-from-json-schema@^0.5.0` when Zod v4 is detected.
+    - Falls back to `zod-from-json-schema@^0.0.5` via alias `zod-from-json-schema-v3` for Zod v3.
+  - Implemented in MCP client (core) and object handlers (server-core).
+
+  Why
+  - Zod v4 introduces changes that require a version-aware conversion path. This update adds seamless compatibility for both major versions.
+
+  Impact
+  - No breaking changes. Projects on Zod v3 continue to work unchanged. Projects can upgrade to Zod v4 without code changes.
+
+  Notes
+  - If your bundler disallows npm aliasing, ensure it can resolve `zod-from-json-schema-v3` (alias to `zod-from-json-schema@^0.0.5`).
+
+- Updated dependencies [[`78a5046`](https://github.com/VoltAgent/voltagent/commit/78a5046ca4d768a96650ebee63ae1630b0dff7a7)]:
+  - @voltagent/server-core@1.0.7-next.1
+
+## 1.0.5-next.0
+
+### Patch Changes
+
+- [#551](https://github.com/VoltAgent/voltagent/pull/551) [`77a3f64`](https://github.com/VoltAgent/voltagent/commit/77a3f64dea6e8a06fbbd72878711efa9ceb90bc3) Thanks [@omeraplak](https://github.com/omeraplak)! - feat: add Zod v4 support (backwards-compatible with v3)
+
+  What’s new
+  - Core + server now support `zod` v4 while keeping v3 working.
+  - Peer ranges expanded to `"zod": "^3.25.0 || ^4.0.0"`.
+  - JSON Schema → Zod conversion handles both versions:
+    - Uses `zod-from-json-schema@^0.5.0` when Zod v4 is detected.
+    - Falls back to `zod-from-json-schema@^0.0.5` via alias `zod-from-json-schema-v3` for Zod v3.
+  - Implemented in MCP client (core) and object handlers (server-core).
+
+  Why
+  - Zod v4 introduces changes that require a version-aware conversion path. This update adds seamless compatibility for both major versions.
+
+  Impact
+  - No breaking changes. Projects on Zod v3 continue to work unchanged. Projects can upgrade to Zod v4 without code changes.
+
+  Notes
+  - If your bundler disallows npm aliasing, ensure it can resolve `zod-from-json-schema-v3` (alias to `zod-from-json-schema@^0.0.5`).
+
+- Updated dependencies [[`77a3f64`](https://github.com/VoltAgent/voltagent/commit/77a3f64dea6e8a06fbbd72878711efa9ceb90bc3)]:
+  - @voltagent/core@1.1.7-next.0
+  - @voltagent/server-core@1.0.7-next.0
+
 ## 1.0.4
 
 ### Patch Changes

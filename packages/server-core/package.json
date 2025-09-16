@@ -1,13 +1,14 @@
 {
   "name": "@voltagent/server-core",
   "description": "Framework-agnostic server core for VoltAgent",
-  "version": "1.0.6",
+  "version": "1.0.7-next.1",
   "dependencies": {
     "@voltagent/internal": "^0.0.10",
     "ai": "^5.0.12",
     "jsonwebtoken": "^9.0.2",
     "ws": "^8.18.1",
-    "zod-from-json-schema": "^0.0.5"
+    "zod-from-json-schema": "^0.5.0",
+    "zod-from-json-schema-v3": "npm:zod-from-json-schema@^0.0.5"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.10",
@@ -37,8 +38,8 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "peerDependencies": {
-    "@voltagent/core": "^1.1.0",
-    "zod": "^3.25.0"
+    "@voltagent/core": "^1.1.7-next.0",
+    "zod": "^3.25.0 || ^4.0.0"
   },
   "scripts": {
     "build": "tsup",

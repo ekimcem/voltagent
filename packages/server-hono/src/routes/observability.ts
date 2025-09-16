@@ -2,7 +2,6 @@
  * Observability route handlers for Hono
  */
 
-import type { OpenAPIHono } from "@hono/zod-openapi";
 import type { ServerProviderDeps } from "@voltagent/core";
 import type { Logger } from "@voltagent/internal";
 import {
@@ -16,12 +15,13 @@ import {
   queryLogsHandler,
   setupObservabilityHandler,
 } from "@voltagent/server-core";
+import type { OpenAPIHonoType } from "../zod-openapi-compat";
 
 /**
  * Register observability routes
  */
 export function registerObservabilityRoutes(
-  app: OpenAPIHono,
+  app: OpenAPIHonoType,
   deps: ServerProviderDeps,
   logger: Logger,
 ) {
