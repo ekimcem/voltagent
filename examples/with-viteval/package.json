@@ -20,7 +20,7 @@
     "dotenv": "^16.4.5",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
-    "viteval": "^0.1.7"
+    "viteval": "^0.5.3"
   },
   "keywords": [
     "agent",

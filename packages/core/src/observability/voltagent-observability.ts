@@ -169,14 +169,10 @@ export class VoltAgentObservability {
       try {
         bridgeInitializer(this.loggerProvider);
       } catch (error) {
-        console.error("[VoltAgentObservability] ❌ Failed to initialize Pino bridge:", error);
         this.logger.error("[VoltAgentObservability] Failed to initialize Pino bridge", { error });
       }
     } else {
-      console.warn(
-        "[VoltAgentObservability] ⚠️ Pino OpenTelemetry bridge not available - @voltagent/logger may not be installed",
-      );
-      this.logger.warn("[VoltAgentObservability] Pino OpenTelemetry bridge not available");
+      this.logger.trace("[VoltAgentObservability] Pino OpenTelemetry bridge not available");
     }
   }
 
