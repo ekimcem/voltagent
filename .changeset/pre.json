@@ -2,13 +2,6 @@
   "mode": "exit",
   "tag": "next",
   "initialVersions": {
-    "voltagent-example-github-repo-analyzer": "0.1.0",
-    "voltagent-example-with-composio-mcp": "0.1.0",
-    "with-jwt-auth": "1.0.1",
-    "voltagent-example-with-mcp": "0.1.0",
-    "voltagent-example-with-nextjs": "0.1.0",
-    "voltagent-example-with-rag-chatbot": "0.0.1",
-    "voltagent-example-with-zapier-mcp": "1.0.0",
     "@voltagent/cli": "0.1.10",
     "@voltagent/core": "1.1.6",
     "create-voltagent-app": "0.2.9",
