@@ -188,6 +188,13 @@ button {
   font-size: 16px;
 }
 
+/* Code block font size */
+pre code,
+.prism-code,
+.theme-code-block pre {
+  font-size: 13px !important;
+}
+
 /* Horrible confusing code below */
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
@@ -268,6 +275,20 @@ main.col.col--7 article.margin-bottom--xl {
 
 .footer {
   padding-bottom: 0 !important;
+}
+
+/* Remove Mermaid diagram background */
+.mermaid {
+  background: transparent !important;
+}
+
+.mermaid svg {
+  background: transparent !important;
+}
+
+/* Remove background from Mermaid container */
+[class*="mermaid"] {
+  background: transparent !important;
 }
 
 @media (max-width: 1024px) {
