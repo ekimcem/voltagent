@@ -387,10 +387,23 @@ export class PostgreSQLMemoryAdapter implements StorageAdapter {
   ): Promise<UIMessage[]> {
     await this.initPromise;
 
+    // Debug: Method entry
+    this.log("getMessages called:", { userId, conversationId, options });
+
     const client = await this.pool.connect();
     try {
       const messagesTable = `${this.tablePrefix}_messages`;
       const { limit = this.storageLimit, before, after, roles } = options || {};
+
+      // Debug: Parsed options
+      this.log("Parsed options:", {
+        limit,
+        storageLimit: this.storageLimit,
+        effectiveLimit: limit,
+        before: before?.toISOString(),
+        after: after?.toISOString(),
+        roles,
+      });
 
       // Build query with filters - use SELECT * to handle both old and new schemas safely
       let sql = `SELECT * FROM ${messagesTable}
@@ -404,6 +417,9 @@ export class PostgreSQLMemoryAdapter implements StorageAdapter {
         sql += ` AND role IN (${placeholders})`;
         params.push(...roles);
         paramCount += roles.length;
+
+        // Debug: Role filter added
+        this.log("Added role filter:", { roles, placeholders });
       }
 
       // Add time filters
@@ -411,12 +427,18 @@ export class PostgreSQLMemoryAdapter implements StorageAdapter {
         sql += ` AND created_at < $${paramCount}`;
         params.push(before.toISOString());
         paramCount++;
+
+        // Debug: Before filter added
+        this.log("Added before filter:", before.toISOString());
       }
 
       if (after) {
         sql += ` AND created_at > $${paramCount}`;
         params.push(after.toISOString());
         paramCount++;
+
+        // Debug: After filter added
+        this.log("Added after filter:", after.toISOString());
       }
 
       // Order by creation time and apply limit
@@ -426,28 +448,52 @@ export class PostgreSQLMemoryAdapter implements StorageAdapter {
         params.push(limit);
       }
 
+      // Debug: Final SQL and parameters
+      this.log("Final SQL query:", sql);
+      this.log("Query parameters:", params);
+
       const result = await client.query(sql, params);
 
+      // Debug: Query results
+      this.log("Query returned rows:", result.rows.length);
+
       // Convert rows to UIMessages with on-the-fly migration for old format
-      return result.rows.map((row) => {
+      const messages = result.rows.map((row, index) => {
+        // Debug: Processing row
+        this.log(`Processing row ${index}:`, {
+          message_id: row.message_id,
+          has_parts: row.parts !== undefined && row.parts !== null,
+          has_content: row.content !== undefined && row.content !== null,
+          role: row.role,
+        });
+
         // Determine parts based on whether we have new format (parts) or old format (content)
         let parts: any;
 
         // Check for new format first (parts column exists and has value)
         if (row.parts !== undefined && row.parts !== null) {
+          // Debug: New format detected
+          this.log(`Row ${index}: Using new format (parts column)`);
+
           // New format - use parts directly (PostgreSQL returns JSONB as parsed object)
           if (typeof row.parts === "string") {
             try {
               parts = JSON.parse(row.parts);
-            } catch {
+              this.log(`Row ${index}: Parsed parts from string`);
+            } catch (e) {
               parts = [];
+              this.log(`Row ${index}: Failed to parse parts, using empty array`, e);
             }
           } else {
             parts = row.parts;
+            this.log(`Row ${index}: Parts already parsed as object`);
           }
         }
         // Check for old format (content column exists and has value)
         else if (row.content !== undefined && row.content !== null) {
+          // Debug: Old format detected
+          this.log(`Row ${index}: Using old format (content column)`);
+
           // Old format - convert content to parts
           let content = row.content;
 
@@ -455,8 +501,10 @@ export class PostgreSQLMemoryAdapter implements StorageAdapter {
           if (typeof content === "string") {
             try {
               content = JSON.parse(content);
-            } catch {
+              this.log(`Row ${index}: Parsed content from string`);
+            } catch (e) {
               // If parsing fails, treat as plain text
+              this.log(`Row ${index}: Failed to parse content, treating as plain text`, e);
               parts = [{ type: "text", text: content }];
               return {
                 id: row.message_id,
@@ -470,25 +518,44 @@ export class PostgreSQLMemoryAdapter implements StorageAdapter {
           if (typeof content === "string") {
             // Simple string content -> text part
             parts = [{ type: "text", text: content }];
+            this.log(`Row ${index}: Converted string content to text part`);
           } else if (Array.isArray(content)) {
             // Already an array of parts (old BaseMessage format with MessageContent array)
             parts = content;
+            this.log(`Row ${index}: Content is already an array of parts, length:`, content.length);
           } else {
             // Unknown format - fallback to empty
             parts = [];
+            this.log(`Row ${index}: Unknown content format, using empty parts`, typeof content);
           }
         } else {
           // No content at all - empty parts
           parts = [];
+          this.log(`Row ${index}: No content or parts found, using empty parts`);
         }
 
-        return {
+        const message = {
           id: row.message_id,
           role: row.role as "system" | "user" | "assistant",
           parts,
           metadata: row.metadata,
         };
+
+        // Debug: Final message structure
+        this.log(`Row ${index}: Final message:`, {
+          id: message.id,
+          role: message.role,
+          partsCount: parts.length,
+          hasMetadata: !!message.metadata,
+        });
+
+        return message;
       });
+
+      // Debug: Method exit
+      this.log(`getMessages returning ${messages.length} messages`);
+
+      return messages;
     } finally {
       client.release();
     }
