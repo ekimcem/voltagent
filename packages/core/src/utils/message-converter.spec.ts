@@ -2,8 +2,8 @@
  * Unit tests for message-converter utility functions
  */
 
-import type { AssistantModelMessage, ToolModelMessage } from "@ai-sdk/provider-utils";
-import type { ModelMessage } from "@ai-sdk/provider-utils";
+import type { AssistantModelMessage, ModelMessage, ToolModelMessage } from "@ai-sdk/provider-utils";
+import { type UIMessage, convertToModelMessages } from "ai";
 import { describe, expect, it } from "vitest";
 import {
   convertModelMessagesToUIMessages,
@@ -156,7 +156,6 @@ describe("convertResponseMessagesToUIMessages", () => {
       state: "output-available",
       input: { operation: "add", a: 1, b: 2 },
       output: { result: 3 },
-      providerExecuted: true,
     });
   });
 
@@ -299,7 +298,7 @@ describe("convertResponseMessagesToUIMessages", () => {
 
     // First assistant message with text and tool
     expect(result[0].role).toBe("assistant");
-    expect(result[0].parts).toHaveLength(4);
+    expect(result[0].parts).toHaveLength(3);
     expect(result[0].parts[0]).toEqual({
       type: "text",
       text: "Let me calculate that for you.",
@@ -310,13 +309,10 @@ describe("convertResponseMessagesToUIMessages", () => {
       state: "output-available",
       input: { operation: "multiply", a: 5, b: 7 },
       output: { result: 35 },
-      providerExecuted: true,
     });
 
-    // Second assistant message with just text
-    expect(result[0].role).toBe("assistant");
-    expect(result[0].parts).toHaveLength(4);
-    expect(result[0].parts[3]).toEqual({
+    // Text from second assistant message
+    expect(result[0].parts[2]).toEqual({
       type: "text",
       text: "The result is 35.",
     });
@@ -371,7 +367,6 @@ describe("convertResponseMessagesToUIMessages", () => {
       state: "output-available",
       input: { query: "weather" },
       output: { results: ["sunny", "warm"] },
-      providerExecuted: true,
     });
 
     expect(result[0].parts[1]).toEqual({
@@ -380,7 +375,6 @@ describe("convertResponseMessagesToUIMessages", () => {
       state: "output-available",
       input: { operation: "add", a: 10, b: 20 },
       output: { result: 30 },
-      providerExecuted: true,
     });
   });
 
@@ -446,15 +440,14 @@ describe("convertModelMessagesToUIMessages (AI SDK v5)", () => {
 
     const ui = convertModelMessagesToUIMessages(messages);
     expect(ui).toHaveLength(1);
-    expect(ui[0].parts).toHaveLength(3);
+    expect(ui[0].parts).toHaveLength(2);
     expect(ui[0].parts[0]).toMatchObject({
       type: "tool-calc",
       state: "output-available",
       toolCallId: "t1",
       output: { result: 42 },
     });
-    expect(ui[0].parts[1]).toEqual({ type: "step-start" });
-    expect(ui[0].parts[2]).toEqual({ type: "text", text: "Done." });
+    expect(ui[0].parts[1]).toEqual({ type: "text", text: "Done." });
   });
 
   it("maps reasoning and file parts", () => {
@@ -563,5 +556,151 @@ describe("convertModelMessagesToUIMessages (AI SDK v5)", () => {
       state: "output-available",
       output: { hits: ["a", "b"] },
     });
+  });
+
+  it("should correctly handle tool messages for AI SDK convertToModelMessages", async () => {
+    // Simulate the response messages from an LLM that called a tool
+    const responseMessages: (AssistantModelMessage | ToolModelMessage)[] = [
+      {
+        role: "assistant",
+        content: [
+          {
+            type: "tool-call",
+            toolCallId: "call_O3d8BaZVIEkb2C2DQ7H3KB7M",
+            toolName: "getWeather",
+            input: { location: "New York" },
+          },
+        ],
+      },
+      {
+        role: "tool",
+        content: [
+          {
+            type: "tool-result",
+            toolCallId: "call_O3d8BaZVIEkb2C2DQ7H3KB7M",
+            toolName: "getWeather",
+            output: {
+              temperature: "34°C",
+              condition: "partly cloudy",
+              humidity: "30%",
+              windSpeed: "27 km/h",
+            },
+          },
+        ],
+      },
+      {
+        role: "assistant",
+        content:
+          "The current weather in New York is 34°C, partly cloudy, with a humidity level of 30% and a wind speed of 27 km/h.",
+      },
+    ];
+
+    // Convert to UI messages (as done when saving to memory)
+    const uiMessages = await convertResponseMessagesToUIMessages(responseMessages);
+
+    // Verify the tool part has providerExecuted: false for client-executed tools
+    expect(uiMessages).toHaveLength(1);
+    expect(uiMessages[0].role).toBe("assistant");
+
+    // The UI message should contain the tool call, tool result, and text in parts
+    const toolCallPart = uiMessages[0].parts.find(
+      (part: any) =>
+        part.type === "tool-getWeather" && part.toolCallId === "call_O3d8BaZVIEkb2C2DQ7H3KB7M",
+    ) as any;
+
+    expect(toolCallPart).toBeDefined();
+    expect(toolCallPart.state).toBe("output-available");
+    expect(toolCallPart.providerExecuted).toBeUndefined(); // Should not be set for tool role messages
+
+    // Now simulate loading these messages from memory and converting for the next API call
+    const conversationHistory: UIMessage[] = [
+      {
+        id: "system-1",
+        role: "system",
+        parts: [
+          {
+            type: "text",
+            text: "You are WeatherAgent. A helpful assistant that can check weather or help with various tasks.",
+          },
+        ],
+      },
+      {
+        id: "user-1",
+        role: "user",
+        parts: [{ type: "text", text: "New york" }],
+      },
+      ...uiMessages, // The saved assistant message with tool call and result
+      {
+        id: "user-2",
+        role: "user",
+        parts: [{ type: "text", text: "london" }],
+      },
+    ];
+
+    // Convert to model messages for the next API call
+    const modelMessages = convertToModelMessages(conversationHistory);
+
+    // The structure depends on how convertResponseMessagesToUIMessages consolidates messages
+    // Check that we have the expected roles in order
+    const roles = modelMessages.map((m) => m.role);
+
+    // Should have: system, user, assistant (with tool call), tool, assistant (with text), user
+    // Or: system, user, assistant (with tool call), tool, user (if text is in same message)
+    expect(roles[0]).toBe("system");
+    expect(roles[1]).toBe("user");
+    expect(roles[2]).toBe("assistant"); // Assistant message with tool call
+
+    // Find the tool message
+    const toolMessageIndex = roles.indexOf("tool");
+    expect(toolMessageIndex).toBeGreaterThan(2); // Tool message comes after assistant
+
+    const toolMessage = modelMessages[toolMessageIndex];
+    expect(toolMessage.content).toBeDefined();
+    expect(Array.isArray(toolMessage.content)).toBe(true);
+
+    const toolResult = (toolMessage.content as any)[0];
+    expect(toolResult.type).toBe("tool-result");
+    expect(toolResult.toolCallId).toBe("call_O3d8BaZVIEkb2C2DQ7H3KB7M");
+
+    // Last message should be the user query for "london"
+    expect(roles[roles.length - 1]).toBe("user");
+  });
+
+  it("should handle provider-executed tools with providerExecuted: true", async () => {
+    // When the provider itself executes the tool (e.g., OpenAI's built-in tools)
+    const responseMessages: AssistantModelMessage[] = [
+      {
+        role: "assistant",
+        content: [
+          {
+            type: "tool-call",
+            toolCallId: "call-provider-123",
+            toolName: "search",
+            input: { query: "weather" },
+            providerExecuted: true, // Provider will execute this
+          },
+          {
+            type: "tool-result",
+            toolCallId: "call-provider-123",
+            toolName: "search",
+            output: { results: ["sunny", "warm"] },
+          },
+          {
+            type: "text",
+            text: "The weather looks sunny and warm.",
+          },
+        ],
+      },
+    ];
+
+    const uiMessages = await convertResponseMessagesToUIMessages(responseMessages);
+
+    // Provider-executed tools should keep providerExecuted: true
+    const toolPart = uiMessages[0].parts.find(
+      (part: any) => part.type === "tool-search" && part.state === "output-available",
+    ) as any;
+
+    expect(toolPart).toBeDefined();
+    expect(toolPart.providerExecuted).toBe(true); // Provider-executed stays true
   });
 });

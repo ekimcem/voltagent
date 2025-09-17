@@ -25,16 +25,8 @@ export async function convertResponseMessagesToUIMessages(
   // Track tool parts globally by toolCallId to update outputs when tool results arrive
   const toolPartsById = new Map<string, any>();
 
-  let assistantCounter = 0;
-
   for (const message of responseMessages) {
     if (message.role === "assistant" && message.content) {
-      // Insert step boundary between assistant messages (optional but aligns with stream semantics)
-      if (assistantCounter > 0) {
-        uiMessage.parts.push({ type: "step-start" } as any);
-      }
-      assistantCounter++;
-
       if (typeof message.content === "string") {
         if (message.content.trim()) {
           uiMessage.parts.push({
@@ -134,7 +126,7 @@ export async function convertResponseMessagesToUIMessages(
         if (existing) {
           existing.state = "output-available";
           existing.output = toolResult.output;
-          existing.providerExecuted = true;
+          // Don't set providerExecuted - tool role messages indicate client execution
         } else {
           const resultPart = {
             type: `tool-${toolResult.toolName}` as const,
@@ -142,7 +134,7 @@ export async function convertResponseMessagesToUIMessages(
             state: "output-available" as const,
             input: {},
             output: toolResult.output,
-            providerExecuted: true,
+            // Don't set providerExecuted - tool role messages indicate client execution
           };
           uiMessage.parts.push(resultPart as any);
           toolPartsById.set(toolResult.toolCallId, resultPart);
@@ -179,7 +171,7 @@ export function convertModelMessagesToUIMessages(messages: ModelMessage[]): UIMe
                   state: "output-available" as const,
                   input: {},
                   output: part.output,
-                  providerExecuted: true,
+                  // Don't set providerExecuted - tool role messages indicate client execution
                 } as any,
               ],
             });
@@ -209,18 +201,6 @@ export function convertModelMessagesToUIMessages(messages: ModelMessage[]): UIMe
       switch (contentPart.type) {
         case "text": {
           if (contentPart.text && contentPart.text.length > 0) {
-            // Insert step-start if previous part is a completed tool result within assistant message,
-            // to preserve step boundaries during later UI->Model conversion
-            const prev = ui.parts.at(-1) as any;
-            if (
-              message.role === "assistant" &&
-              prev &&
-              typeof prev?.type === "string" &&
-              prev.type.startsWith("tool-") &&
-              prev.state === "output-available"
-            ) {
-              ui.parts.push({ type: "step-start" } as any);
-            }
             ui.parts.push({
               type: "text",
               text: contentPart.text,
@@ -265,6 +245,7 @@ export function convertModelMessagesToUIMessages(messages: ModelMessage[]): UIMe
             state: "output-available" as const,
             input: {},
             output: contentPart.output,
+            // tool-result in assistant message content indicates provider execution
             providerExecuted: true,
           } as any);
           break;
