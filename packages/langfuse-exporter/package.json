@@ -37,7 +37,7 @@
     "@opentelemetry/api": "^1.0.0",
     "@opentelemetry/core": "^2.0.0",
     "@opentelemetry/sdk-trace-base": "^2.0.0",
-    "@voltagent/core": "^1.1.7-next.0"
+    "@voltagent/core": "^1.0.0"
   },
   "scripts": {
     "attw": "attw --pack",
