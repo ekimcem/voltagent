@@ -224,6 +224,8 @@ export class PostgreSQLMemoryAdapter implements StorageAdapter {
         this.log("Error adding UIMessage columns (non-critical):", error);
       }
 
+      await client.query("COMMIT");
+
       // Migrate default user_id values to actual values from conversations
       // Use pool-level queries to avoid interfering with transactional init queries
       try {
@@ -232,7 +234,6 @@ export class PostgreSQLMemoryAdapter implements StorageAdapter {
         this.log("Error migrating default user_ids (non-critical):", error);
       }
 
-      await client.query("COMMIT");
       this.initialized = true;
       this.log("Database schema initialized");
     } catch (error) {
