@@ -1,0 +1,3049 @@
+{
+  "1916955895709503681": {
+    "__typename": "Tweet",
+    "lang": "ca",
+    "favorite_count": 8,
+    "created_at": "2025-04-28T20:41:15.000Z",
+    "display_text_range": [
+      0,
+      44
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "user_mentions": [],
+      "symbols": []
+    },
+    "id_str": "1916955895709503681",
+    "text": "VoltAgent = IKEA instructions for AI agents…",
+    "user": {
+      "id_str": "791392986",
+      "name": "Siim Haugas",
+      "screen_name": "siimh",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1949718040532090880/DosiN28C_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1916955895709503681"
+      ],
+      "editable_until_msecs": "1745876475000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "conversation_count": 3,
+    "news_action_type": "conversation",
+    "quoted_tweet": {
+      "lang": "en",
+      "reply_count": 5,
+      "retweet_count": 11,
+      "favorite_count": 81,
+      "possibly_sensitive": false,
+      "created_at": "2025-04-21T07:14:10.000Z",
+      "display_text_range": [
+        0,
+        281
+      ],
+      "entities": {
+        "hashtags": [],
+        "urls": [],
+        "user_mentions": [],
+        "symbols": [],
+        "media": [
+          {
+            "display_url": "pic.x.com/5wcCP91jGA",
+            "expanded_url": "https://x.com/voltagent_dev/status/1914216071734894795/photo/1",
+            "indices": [
+              272,
+              295
+            ],
+            "url": "https://t.co/5wcCP91jGA"
+          }
+        ]
+      },
+      "id_str": "1914216071734894795",
+      "text": "🚨🚨🚨 VoltAgent is now live. 🚨🚨🚨\n\nAn open-source AI Agent Framework. \n\n🔍 Built-in observability\n🧠 Multi-agent architecture\n⚡ Supervisor-based coordination\n🪄 Native tool support &amp; memory\n🧩 First-class TypeScript DX\n\nForget no-code lock-ins.\nEverything you need is in one https://t.co/5wcCP91jGA",
+      "user": {
+        "id_str": "1912724805406863360",
+        "name": "voltagent",
+        "screen_name": "voltagent_dev",
+        "is_blue_verified": true,
+        "profile_image_shape": "Circle",
+        "verified": false,
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1914089710479392768/7eHuxxXx_normal.jpg"
+      },
+      "edit_control": {
+        "edit_tweet_ids": [
+          "1914216071734894795"
+        ],
+        "editable_until_msecs": "1745223250000",
+        "is_edit_eligible": false,
+        "edits_remaining": "5"
+      },
+      "mediaDetails": [
+        {
+          "display_url": "pic.x.com/5wcCP91jGA",
+          "expanded_url": "https://x.com/voltagent_dev/status/1914216071734894795/photo/1",
+          "ext_media_availability": {
+            "status": "Available"
+          },
+          "indices": [
+            272,
+            295
+          ],
+          "media_url_https": "https://pbs.twimg.com/tweet_video_thumb/GpCoysFaIAAc52l.jpg",
+          "original_info": {
+            "height": 720,
+            "width": 1032,
+            "focus_rects": []
+          },
+          "sizes": {
+            "large": {
+              "h": 720,
+              "resize": "fit",
+              "w": 1032
+            },
+            "medium": {
+              "h": 720,
+              "resize": "fit",
+              "w": 1032
+            },
+            "small": {
+              "h": 474,
+              "resize": "fit",
+              "w": 680
+            },
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            }
+          },
+          "type": "animated_gif",
+          "url": "https://t.co/5wcCP91jGA",
+          "video_info": {
+            "aspect_ratio": [
+              43,
+              30
+            ],
+            "variants": [
+              {
+                "bitrate": 0,
+                "content_type": "video/mp4",
+                "url": "https://video.twimg.com/tweet_video/GpCoysFaIAAc52l.mp4"
+              }
+            ]
+          }
+        }
+      ],
+      "photos": [],
+      "video": {
+        "aspectRatio": [
+          43,
+          30
+        ],
+        "contentType": "gif",
+        "durationMs": 0,
+        "mediaAvailability": {
+          "status": "available"
+        },
+        "poster": "https://pbs.twimg.com/tweet_video_thumb/GpCoysFaIAAc52l.jpg",
+        "variants": [
+          {
+            "type": "video/mp4",
+            "src": "https://video.twimg.com/tweet_video/GpCoysFaIAAc52l.mp4"
+          }
+        ],
+        "videoId": {
+          "type": "tweet",
+          "id": "1914216071734894795"
+        },
+        "viewCount": 0
+      },
+      "isEdited": false,
+      "isStaleEdit": false
+    },
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1930715579155202268": {
+    "__typename": "Tweet",
+    "lang": "en",
+    "favorite_count": 16,
+    "possibly_sensitive": false,
+    "created_at": "2025-06-05T19:57:19.000Z",
+    "display_text_range": [
+      0,
+      94
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "user_mentions": [
+        {
+          "id_str": "1912724805406863360",
+          "indices": [
+            33,
+            47
+          ],
+          "name": "voltagent",
+          "screen_name": "voltagent_dev"
+        },
+        {
+          "id_str": "1695890961094909952",
+          "indices": [
+            49,
+            59
+          ],
+          "name": "Cursor",
+          "screen_name": "cursor_ai"
+        },
+        {
+          "id_str": "1467726470533754880",
+          "indices": [
+            61,
+            68
+          ],
+          "name": "Next.js",
+          "screen_name": "nextjs"
+        },
+        {
+          "id_str": "18080585",
+          "indices": [
+            70,
+            78
+          ],
+          "name": "MongoDB",
+          "screen_name": "MongoDB"
+        },
+        {
+          "id_str": "1789820062867570688",
+          "indices": [
+            80,
+            94
+          ],
+          "name": "supermemory",
+          "screen_name": "supermemoryai"
+        }
+      ],
+      "symbols": [],
+      "media": [
+        {
+          "display_url": "pic.x.com/xOhhlIfeSw",
+          "expanded_url": "https://x.com/digitalconner/status/1930715579155202268/photo/1",
+          "indices": [
+            95,
+            118
+          ],
+          "url": "https://t.co/xOhhlIfeSw"
+        }
+      ]
+    },
+    "id_str": "1930715579155202268",
+    "text": "Current stack for AI dev agent:\n\n@voltagent_dev \n@cursor_ai \n@nextjs \n@MongoDB \n@Supermemoryai https://t.co/xOhhlIfeSw",
+    "user": {
+      "id_str": "1636783451591561217",
+      "name": "Conner Pope",
+      "screen_name": "digitalconner",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1895917137543528448/AcTKNyvc_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1930715579155202268"
+      ],
+      "editable_until_msecs": "1749157039000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "mediaDetails": [
+      {
+        "display_url": "pic.x.com/xOhhlIfeSw",
+        "expanded_url": "https://x.com/digitalconner/status/1930715579155202268/photo/1",
+        "ext_media_availability": {
+          "status": "Available"
+        },
+        "indices": [
+          95,
+          118
+        ],
+        "media_url_https": "https://pbs.twimg.com/media/GstHeXabIAAKioD.jpg",
+        "original_info": {
+          "height": 968,
+          "width": 1721,
+          "focus_rects": [
+            {
+              "x": 0,
+              "y": 4,
+              "w": 1721,
+              "h": 964
+            },
+            {
+              "x": 75,
+              "y": 0,
+              "w": 968,
+              "h": 968
+            },
+            {
+              "x": 135,
+              "y": 0,
+              "w": 849,
+              "h": 968
+            },
+            {
+              "x": 317,
+              "y": 0,
+              "w": 484,
+              "h": 968
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "w": 1721,
+              "h": 968
+            }
+          ]
+        },
+        "sizes": {
+          "large": {
+            "h": 968,
+            "resize": "fit",
+            "w": 1721
+          },
+          "medium": {
+            "h": 675,
+            "resize": "fit",
+            "w": 1200
+          },
+          "small": {
+            "h": 382,
+            "resize": "fit",
+            "w": 680
+          },
+          "thumb": {
+            "h": 150,
+            "resize": "crop",
+            "w": 150
+          }
+        },
+        "type": "photo",
+        "url": "https://t.co/xOhhlIfeSw"
+      }
+    ],
+    "photos": [
+      {
+        "backgroundColor": {
+          "red": 204,
+          "green": 214,
+          "blue": 221
+        },
+        "cropCandidates": [
+          {
+            "x": 0,
+            "y": 4,
+            "w": 1721,
+            "h": 964
+          },
+          {
+            "x": 75,
+            "y": 0,
+            "w": 968,
+            "h": 968
+          },
+          {
+            "x": 135,
+            "y": 0,
+            "w": 849,
+            "h": 968
+          },
+          {
+            "x": 317,
+            "y": 0,
+            "w": 484,
+            "h": 968
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "w": 1721,
+            "h": 968
+          }
+        ],
+        "expandedUrl": "https://x.com/digitalconner/status/1930715579155202268/photo/1",
+        "url": "https://pbs.twimg.com/media/GstHeXabIAAKioD.jpg",
+        "width": 1721,
+        "height": 968
+      }
+    ],
+    "conversation_count": 3,
+    "news_action_type": "conversation",
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1952223435469566004": {
+    "__typename": "Tweet",
+    "in_reply_to_screen_name": "digitalconner",
+    "in_reply_to_status_id_str": "1952222819963830562",
+    "in_reply_to_user_id_str": "1636783451591561217",
+    "lang": "en",
+    "favorite_count": 10,
+    "created_at": "2025-08-04T04:21:52.000Z",
+    "display_text_range": [
+      53,
+      326
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "user_mentions": [
+        {
+          "id_str": "1269332203026014208",
+          "indices": [
+            0,
+            9
+          ],
+          "name": "Harpreet Arora",
+          "screen_name": "hp_arora"
+        },
+        {
+          "id_str": "4040801543",
+          "indices": [
+            10,
+            26
+          ],
+          "name": "۟",
+          "screen_name": "franciscoparata"
+        },
+        {
+          "id_str": "1912724805406863360",
+          "indices": [
+            27,
+            41
+          ],
+          "name": "voltagent",
+          "screen_name": "voltagent_dev"
+        },
+        {
+          "id_str": "1861308613563949057",
+          "indices": [
+            42,
+            52
+          ],
+          "name": "Mastra",
+          "screen_name": "mastra_ai"
+        }
+      ],
+      "symbols": []
+    },
+    "id_str": "1952223435469566004",
+    "text": "@hp_arora @franciscoparata @voltagent_dev @mastra_ai Speaking to VoltAgent specifically (it's the framework I've been using), they offer a sub-agent architecture, with built-in agent dispatching. \n\nThey offer a ton of features really. I'd suggest looking at their docs. \n\nThey offer agent hooks, voice, retrievers, memory, etc",
+    "user": {
+      "id_str": "1636783451591561217",
+      "name": "Conner Pope",
+      "screen_name": "digitalconner",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1895917137543528448/AcTKNyvc_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1952223435469566004"
+      ],
+      "editable_until_msecs": "1754284912000",
+      "is_edit_eligible": false,
+      "edits_remaining": "5"
+    },
+    "conversation_count": 1,
+    "news_action_type": "conversation",
+    "parent": {
+      "in_reply_to_screen_name": "hp_arora",
+      "in_reply_to_status_id_str": "1952210310498320757",
+      "in_reply_to_user_id_str": "1269332203026014208",
+      "lang": "en",
+      "reply_count": 2,
+      "retweet_count": 0,
+      "favorite_count": 8,
+      "created_at": "2025-08-04T04:19:25.000Z",
+      "display_text_range": [
+        53,
+        303
+      ],
+      "entities": {
+        "hashtags": [],
+        "urls": [],
+        "user_mentions": [
+          {
+            "id_str": "1269332203026014208",
+            "indices": [
+              0,
+              9
+            ],
+            "name": "Harpreet Arora",
+            "screen_name": "hp_arora"
+          },
+          {
+            "id_str": "4040801543",
+            "indices": [
+              10,
+              26
+            ],
+            "name": "۟",
+            "screen_name": "franciscoparata"
+          },
+          {
+            "id_str": "1912724805406863360",
+            "indices": [
+              27,
+              41
+            ],
+            "name": "voltagent",
+            "screen_name": "voltagent_dev"
+          },
+          {
+            "id_str": "1861308613563949057",
+            "indices": [
+              42,
+              52
+            ],
+            "name": "Mastra",
+            "screen_name": "mastra_ai"
+          }
+        ],
+        "symbols": []
+      },
+      "id_str": "1952222819963830562",
+      "text": "@hp_arora @franciscoparata @voltagent_dev @mastra_ai First off the naming just doesn't sit right with me. \n\nWrapping the agent experience inside of a generateText function just feels... off, and/or confusing to me.\n\nI really like the pattern of instantiating an actual Agent class like VoltAgent/Mastra.",
+      "user": {
+        "id_str": "1636783451591561217",
+        "name": "Conner Pope",
+        "screen_name": "digitalconner",
+        "is_blue_verified": true,
+        "profile_image_shape": "Circle",
+        "verified": false,
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1895917137543528448/AcTKNyvc_normal.jpg"
+      },
+      "edit_control": {
+        "edit_tweet_ids": [
+          "1952222819963830562"
+        ],
+        "editable_until_msecs": "1754284765000",
+        "is_edit_eligible": false,
+        "edits_remaining": "5"
+      },
+      "isEdited": false,
+      "isStaleEdit": false
+    },
+    "isEdited": false,
+    "isStaleEdit": false,
+    "note_tweet": {
+      "id": "Tm90ZVR3ZWV0UmVzdWx0czoxOTUyMjIzNDM1MzQ3OTE0NzUy"
+    }
+  },
+  "1929706642851193172": {
+    "__typename": "Tweet",
+    "lang": "en",
+    "favorite_count": 12,
+    "possibly_sensitive": false,
+    "created_at": "2025-06-03T01:08:10.000Z",
+    "display_text_range": [
+      0,
+      177
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "user_mentions": [
+        {
+          "id_str": "1912724805406863360",
+          "indices": [
+            126,
+            140
+          ],
+          "name": "voltagent",
+          "screen_name": "voltagent_dev"
+        }
+      ],
+      "symbols": [],
+      "media": [
+        {
+          "display_url": "pic.x.com/rpBP28d4ei",
+          "expanded_url": "https://x.com/siimh/status/1929706642851193172/photo/1",
+          "indices": [
+            177,
+            200
+          ],
+          "url": "https://t.co/rpBP28d4ei"
+        }
+      ]
+    },
+    "id_str": "1929706642851193172",
+    "text": "Such a beautiful architecture diagram, Claude, ty 🥹\n\nCurrently assembling some AI agents\n\nIt's agent volt⚡️ time! \n\nRemember, @voltagent_dev  = IKEA instructions for AI agents… https://t.co/rpBP28d4ei",
+    "user": {
+      "id_str": "791392986",
+      "name": "Siim Haugas",
+      "screen_name": "siimh",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1949718040532090880/DosiN28C_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1929706642851193172"
+      ],
+      "editable_until_msecs": "1748916490000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "mediaDetails": [
+      {
+        "display_url": "pic.x.com/rpBP28d4ei",
+        "expanded_url": "https://x.com/siimh/status/1929706642851193172/photo/1",
+        "ext_media_availability": {
+          "status": "Available"
+        },
+        "indices": [
+          177,
+          200
+        ],
+        "media_url_https": "https://pbs.twimg.com/media/GsevTHhWMAA5Mhd.jpg",
+        "original_info": {
+          "height": 1692,
+          "width": 888,
+          "focus_rects": [
+            {
+              "x": 0,
+              "y": 0,
+              "w": 888,
+              "h": 497
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "w": 888,
+              "h": 888
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "w": 888,
+              "h": 1012
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "w": 846,
+              "h": 1692
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "w": 888,
+              "h": 1692
+            }
+          ]
+        },
+        "sizes": {
+          "large": {
+            "h": 1692,
+            "resize": "fit",
+            "w": 888
+          },
+          "medium": {
+            "h": 1200,
+            "resize": "fit",
+            "w": 630
+          },
+          "small": {
+            "h": 680,
+            "resize": "fit",
+            "w": 357
+          },
+          "thumb": {
+            "h": 150,
+            "resize": "crop",
+            "w": 150
+          }
+        },
+        "type": "photo",
+        "url": "https://t.co/rpBP28d4ei"
+      }
+    ],
+    "photos": [
+      {
+        "backgroundColor": {
+          "red": 204,
+          "green": 214,
+          "blue": 221
+        },
+        "cropCandidates": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 888,
+            "h": 497
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "w": 888,
+            "h": 888
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "w": 888,
+            "h": 1012
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "w": 846,
+            "h": 1692
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "w": 888,
+            "h": 1692
+          }
+        ],
+        "expandedUrl": "https://x.com/siimh/status/1929706642851193172/photo/1",
+        "url": "https://pbs.twimg.com/media/GsevTHhWMAA5Mhd.jpg",
+        "width": 888,
+        "height": 1692
+      }
+    ],
+    "conversation_count": 5,
+    "news_action_type": "conversation",
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1917264060225044707": {
+    "__typename": "Tweet",
+    "lang": "en",
+    "favorite_count": 8,
+    "possibly_sensitive": false,
+    "created_at": "2025-04-29T17:05:47.000Z",
+    "display_text_range": [
+      0,
+      258
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        {
+          "display_url": "voltagent.dev/blog/data-awar…",
+          "expanded_url": "https://voltagent.dev/blog/data-aware-chatbot-voltagent-peaka",
+          "indices": [
+            231,
+            254
+          ],
+          "url": "https://t.co/RoNXr7Y9ZP"
+        }
+      ],
+      "user_mentions": [
+        {
+          "id_str": "1912724805406863360",
+          "indices": [
+            60,
+            74
+          ],
+          "name": "voltagent",
+          "screen_name": "voltagent_dev"
+        },
+        {
+          "id_str": "1301806903308189696",
+          "indices": [
+            86,
+            95
+          ],
+          "name": "Peaka",
+          "screen_name": "peakacom"
+        }
+      ],
+      "symbols": []
+    },
+    "id_str": "1917264060225044707",
+    "text": "🤔 What happens when real-time data meets AI?\n\n💪 The team at @voltagent_dev integrated @peakacom  into their chatbot, enabling it to access live data and making it smarter as a result.\n\n✍️ Check out the blog post for the details👇\n🔗 https://t.co/RoNXr7Y9ZP",
+    "user": {
+      "id_str": "1301806903308189696",
+      "name": "Peaka",
+      "screen_name": "peakacom",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1745350860522037248/nD2Ir70Z_normal.png"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1917264060225044707"
+      ],
+      "editable_until_msecs": "1745949947000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "conversation_count": 1,
+    "news_action_type": "conversation",
+    "card": {
+      "card_platform": {
+        "platform": {
+          "audience": {
+            "name": "production"
+          },
+          "device": {
+            "name": "iPhone",
+            "version": "13"
+          }
+        }
+      },
+      "name": "summary_large_image",
+      "url": "https://t.co/RoNXr7Y9ZP",
+      "binding_values": {
+        "photo_image_full_size_large": {
+          "image_value": {
+            "height": 419,
+            "width": 800,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=800x419"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image": {
+          "image_value": {
+            "height": 147,
+            "width": 280,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=280x150"
+          },
+          "type": "IMAGE"
+        },
+        "description": {
+          "string_value": "Learn how to integrate Peaka's powerful data access into your VoltAgent AI applications using the Model Context Protocol (MCP).",
+          "type": "STRING"
+        },
+        "domain": {
+          "string_value": "voltagent.dev",
+          "type": "STRING"
+        },
+        "thumbnail_image_large": {
+          "image_value": {
+            "height": 315,
+            "width": 600,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=600x600"
+          },
+          "type": "IMAGE"
+        },
+        "summary_photo_image_small": {
+          "image_value": {
+            "height": 202,
+            "width": 386,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=386x202"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_original": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=orig"
+          },
+          "type": "IMAGE"
+        },
+        "photo_image_full_size_small": {
+          "image_value": {
+            "height": 202,
+            "width": 386,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=386x202"
+          },
+          "type": "IMAGE"
+        },
+        "summary_photo_image_large": {
+          "image_value": {
+            "height": 419,
+            "width": 800,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=800x419"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_small": {
+          "image_value": {
+            "height": 76,
+            "width": 144,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=144x144"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_x_large": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=2048x2048_2_exp"
+          },
+          "type": "IMAGE"
+        },
+        "photo_image_full_size_original": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=orig"
+          },
+          "type": "IMAGE"
+        },
+        "vanity_url": {
+          "scribe_key": "vanity_url",
+          "string_value": "voltagent.dev",
+          "type": "STRING"
+        },
+        "photo_image_full_size": {
+          "image_value": {
+            "height": 314,
+            "width": 600,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=600x314"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_color": {
+          "image_color_value": {
+            "palette": [
+              {
+                "rgb": {
+                  "blue": 34,
+                  "green": 34,
+                  "red": 34
+                },
+                "percentage": 93.77
+              },
+              {
+                "rgb": {
+                  "blue": 71,
+                  "green": 96,
+                  "red": 22
+                },
+                "percentage": 2.52
+              },
+              {
+                "rgb": {
+                  "blue": 127,
+                  "green": 186,
+                  "red": 5
+                },
+                "percentage": 2.22
+              },
+              {
+                "rgb": {
+                  "blue": 145,
+                  "green": 145,
+                  "red": 145
+                },
+                "percentage": 1.47
+              }
+            ]
+          },
+          "type": "IMAGE_COLOR"
+        },
+        "title": {
+          "string_value": "Building a Data-Aware Chatbot with VoltAgent and Peaka | VoltAgent",
+          "type": "STRING"
+        },
+        "summary_photo_image_color": {
+          "image_color_value": {
+            "palette": [
+              {
+                "rgb": {
+                  "blue": 34,
+                  "green": 34,
+                  "red": 34
+                },
+                "percentage": 93.77
+              },
+              {
+                "rgb": {
+                  "blue": 71,
+                  "green": 96,
+                  "red": 22
+                },
+                "percentage": 2.52
+              },
+              {
+                "rgb": {
+                  "blue": 127,
+                  "green": 186,
+                  "red": 5
+                },
+                "percentage": 2.22
+              },
+              {
+                "rgb": {
+                  "blue": 145,
+                  "green": 145,
+                  "red": 145
+                },
+                "percentage": 1.47
+              }
+            ]
+          },
+          "type": "IMAGE_COLOR"
+        },
+        "summary_photo_image_x_large": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=2048x2048_2_exp"
+          },
+          "type": "IMAGE"
+        },
+        "summary_photo_image": {
+          "image_value": {
+            "height": 314,
+            "width": 600,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=600x314"
+          },
+          "type": "IMAGE"
+        },
+        "photo_image_full_size_color": {
+          "image_color_value": {
+            "palette": [
+              {
+                "rgb": {
+                  "blue": 34,
+                  "green": 34,
+                  "red": 34
+                },
+                "percentage": 93.77
+              },
+              {
+                "rgb": {
+                  "blue": 71,
+                  "green": 96,
+                  "red": 22
+                },
+                "percentage": 2.52
+              },
+              {
+                "rgb": {
+                  "blue": 127,
+                  "green": 186,
+                  "red": 5
+                },
+                "percentage": 2.22
+              },
+              {
+                "rgb": {
+                  "blue": 145,
+                  "green": 145,
+                  "red": 145
+                },
+                "percentage": 1.47
+              }
+            ]
+          },
+          "type": "IMAGE_COLOR"
+        },
+        "photo_image_full_size_x_large": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=2048x2048_2_exp"
+          },
+          "type": "IMAGE"
+        },
+        "card_url": {
+          "scribe_key": "card_url",
+          "string_value": "https://t.co/RoNXr7Y9ZP",
+          "type": "STRING"
+        },
+        "summary_photo_image_original": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1969129682751856640/Zg1LN2NM?format=png&name=orig"
+          },
+          "type": "IMAGE"
+        }
+      }
+    },
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1950536117549486550": {
+    "__typename": "Tweet",
+    "in_reply_to_screen_name": "tomsiwik",
+    "in_reply_to_status_id_str": "1950494081458811022",
+    "in_reply_to_user_id_str": "19107253",
+    "lang": "en",
+    "favorite_count": 5,
+    "possibly_sensitive": false,
+    "created_at": "2025-07-30T12:37:04.000Z",
+    "display_text_range": [
+      10,
+      246
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        {
+          "display_url": "voltagent.dev/docs/agents/me…",
+          "expanded_url": "https://voltagent.dev/docs/agents/memory/overview/",
+          "indices": [
+            223,
+            246
+          ],
+          "url": "https://t.co/ZuCR9qgqcj"
+        }
+      ],
+      "user_mentions": [
+        {
+          "id_str": "19107253",
+          "indices": [
+            0,
+            9
+          ],
+          "name": "Tom Siwik",
+          "screen_name": "tomsiwik"
+        }
+      ],
+      "symbols": []
+    },
+    "id_str": "1950536117549486550",
+    "text": "@tomsiwik if you're building in typescript, you need to see voltagent.  \n\ntheir state and memory features are solid. \n\njust built a sales pipeline for a client with it, and it runs smoothly.  huge win for complex systems.\n\nhttps://t.co/ZuCR9qgqcj",
+    "user": {
+      "id_str": "791392986",
+      "name": "Siim Haugas",
+      "screen_name": "siimh",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1949718040532090880/DosiN28C_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1950536117549486550"
+      ],
+      "editable_until_msecs": "1753882624000",
+      "is_edit_eligible": false,
+      "edits_remaining": "5"
+    },
+    "conversation_count": 1,
+    "news_action_type": "conversation",
+    "parent": {
+      "lang": "en",
+      "reply_count": 3,
+      "retweet_count": 0,
+      "favorite_count": 9,
+      "created_at": "2025-07-30T09:50:02.000Z",
+      "display_text_range": [
+        0,
+        258
+      ],
+      "entities": {
+        "hashtags": [],
+        "urls": [],
+        "user_mentions": [],
+        "symbols": []
+      },
+      "id_str": "1950494081458811022",
+      "text": "Struggling with memory/shared state for agents. \n\nDoes somebody have a reliable solution that works locally? \n\nKnowledge graphs seem to miss immediate memory/state. I didn't find a state library other than writing current state into a file.\n\nAny suggestions?",
+      "user": {
+        "id_str": "19107253",
+        "name": "Tom Siwik",
+        "screen_name": "tomsiwik",
+        "is_blue_verified": true,
+        "profile_image_shape": "Circle",
+        "verified": false,
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1968333616397647872/xQIzFeFm_normal.jpg"
+      },
+      "edit_control": {
+        "edit_tweet_ids": [
+          "1950494081458811022"
+        ],
+        "editable_until_msecs": "1753872602000",
+        "is_edit_eligible": true,
+        "edits_remaining": "5"
+      },
+      "isEdited": false,
+      "isStaleEdit": false
+    },
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1927072927213596780": {
+    "__typename": "Tweet",
+    "lang": "en",
+    "favorite_count": 6,
+    "possibly_sensitive": false,
+    "created_at": "2025-05-26T18:42:43.000Z",
+    "display_text_range": [
+      0,
+      161
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "user_mentions": [
+        {
+          "id_str": "1912724805406863360",
+          "indices": [
+            14,
+            28
+          ],
+          "name": "voltagent",
+          "screen_name": "voltagent_dev"
+        }
+      ],
+      "symbols": [],
+      "media": [
+        {
+          "display_url": "pic.x.com/4ltNgHGEhn",
+          "expanded_url": "https://x.com/cderm/status/1927072927213596780/video/1",
+          "indices": [
+            162,
+            185
+          ],
+          "url": "https://t.co/4ltNgHGEhn"
+        }
+      ]
+    },
+    "id_str": "1927072927213596780",
+    "text": "Gonna try use @voltagent_dev in SupaPM -  Nuxt project. I had planned rolling my own agents for now but voltagent looks promising. I’ll let you know how I get on https://t.co/4ltNgHGEhn",
+    "user": {
+      "id_str": "129362820",
+      "name": "Chris Dermody",
+      "screen_name": "cderm",
+      "is_blue_verified": false,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1604168426355834883/FtRjS7Ic_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1927072927213596780"
+      ],
+      "editable_until_msecs": "1748288563000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "mediaDetails": [
+      {
+        "additional_media_info": {},
+        "display_url": "pic.x.com/4ltNgHGEhn",
+        "expanded_url": "https://x.com/cderm/status/1927072927213596780/video/1",
+        "ext_media_availability": {
+          "status": "Available"
+        },
+        "indices": [
+          162,
+          185
+        ],
+        "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/1927072797869678593/img/ewpGr2Y6xfCGrEsq.jpg",
+        "original_info": {
+          "height": 1280,
+          "width": 718,
+          "focus_rects": []
+        },
+        "sizes": {
+          "large": {
+            "h": 1280,
+            "resize": "fit",
+            "w": 718
+          },
+          "medium": {
+            "h": 1200,
+            "resize": "fit",
+            "w": 673
+          },
+          "small": {
+            "h": 680,
+            "resize": "fit",
+            "w": 381
+          },
+          "thumb": {
+            "h": 150,
+            "resize": "crop",
+            "w": 150
+          }
+        },
+        "type": "video",
+        "url": "https://t.co/4ltNgHGEhn",
+        "video_info": {
+          "aspect_ratio": [
+            359,
+            640
+          ],
+          "duration_millis": 64404,
+          "variants": [
+            {
+              "content_type": "application/x-mpegURL",
+              "url": "https://video.twimg.com/amplify_video/1927072797869678593/pl/9xsg4cyAFPL7hhDv.m3u8"
+            },
+            {
+              "bitrate": 632000,
+              "content_type": "video/mp4",
+              "url": "https://video.twimg.com/amplify_video/1927072797869678593/vid/avc1/320x570/WHkXMZWvQ90yj4sz.mp4"
+            },
+            {
+              "bitrate": 950000,
+              "content_type": "video/mp4",
+              "url": "https://video.twimg.com/amplify_video/1927072797869678593/vid/avc1/480x854/5FamBZjqio_U2JFD.mp4"
+            },
+            {
+              "bitrate": 2176000,
+              "content_type": "video/mp4",
+              "url": "https://video.twimg.com/amplify_video/1927072797869678593/vid/avc1/718x1280/JVDRtGVv3cfHjvt5.mp4"
+            }
+          ]
+        }
+      }
+    ],
+    "photos": [],
+    "video": {
+      "aspectRatio": [
+        359,
+        640
+      ],
+      "contentType": "media_entity",
+      "durationMs": 64404,
+      "mediaAvailability": {
+        "status": "available"
+      },
+      "poster": "https://pbs.twimg.com/amplify_video_thumb/1927072797869678593/img/ewpGr2Y6xfCGrEsq.jpg",
+      "variants": [
+        {
+          "type": "application/x-mpegURL",
+          "src": "https://video.twimg.com/amplify_video/1927072797869678593/pl/9xsg4cyAFPL7hhDv.m3u8"
+        },
+        {
+          "type": "video/mp4",
+          "src": "https://video.twimg.com/amplify_video/1927072797869678593/vid/avc1/320x570/WHkXMZWvQ90yj4sz.mp4"
+        },
+        {
+          "type": "video/mp4",
+          "src": "https://video.twimg.com/amplify_video/1927072797869678593/vid/avc1/480x854/5FamBZjqio_U2JFD.mp4"
+        },
+        {
+          "type": "video/mp4",
+          "src": "https://video.twimg.com/amplify_video/1927072797869678593/vid/avc1/718x1280/JVDRtGVv3cfHjvt5.mp4"
+        }
+      ],
+      "videoId": {
+        "type": "tweet",
+        "id": "1927072927213596780"
+      },
+      "viewCount": 0
+    },
+    "conversation_count": 2,
+    "news_action_type": "conversation",
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1927054751666999592": {
+    "__typename": "Tweet",
+    "lang": "en",
+    "favorite_count": 18,
+    "created_at": "2025-05-26T17:30:30.000Z",
+    "display_text_range": [
+      0,
+      275
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "user_mentions": [
+        {
+          "id_str": "1432739296008671245",
+          "indices": [
+            48,
+            62
+          ],
+          "name": "Turso",
+          "screen_name": "tursodatabase"
+        },
+        {
+          "id_str": "1912724805406863360",
+          "indices": [
+            121,
+            135
+          ],
+          "name": "voltagent",
+          "screen_name": "voltagent_dev"
+        },
+        {
+          "id_str": "1151088688148955136",
+          "indices": [
+            140,
+            155
+          ],
+          "name": "Omer Aplak",
+          "screen_name": "omerfarukaplak"
+        }
+      ],
+      "symbols": []
+    },
+    "id_str": "1927054751666999592",
+    "text": "It's great to see more agentic tools looking at @tursodatabase for their database needs. Today we have a guest post from @voltagent_dev CEO @omerfarukaplak.\n\nWhat makes Turso Cloud great for their use case? You can easily create individual databases per project that are then",
+    "user": {
+      "id_str": "71525162",
+      "name": "Glauber Costa",
+      "screen_name": "glcst",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1278683104178089985/gWWT4dja_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1927054751666999592"
+      ],
+      "editable_until_msecs": "1748284230000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "conversation_count": 3,
+    "news_action_type": "conversation",
+    "isEdited": false,
+    "isStaleEdit": false,
+    "note_tweet": {
+      "id": "Tm90ZVR3ZWV0UmVzdWx0czoxOTI3MDU0NzUxNTAzNDI5NjMy"
+    }
+  },
+  "1924486274448306320": {
+    "__typename": "Tweet",
+    "lang": "ja",
+    "favorite_count": 21,
+    "possibly_sensitive": false,
+    "created_at": "2025-05-19T15:24:17.000Z",
+    "display_text_range": [
+      0,
+      181
+    ],
+    "entities": {
+      "hashtags": [
+        {
+          "indices": [
+            0,
+            10
+          ],
+          "text": "VoltAgent"
+        },
+        {
+          "indices": [
+            151,
+            157
+          ],
+          "text": "Qiita"
+        }
+      ],
+      "urls": [
+        {
+          "display_url": "qiita.com/youtoy/items/6…",
+          "expanded_url": "https://qiita.com/youtoy/items/6990e175e92c54265580",
+          "indices": [
+            158,
+            181
+          ],
+          "url": "https://t.co/Udxy7OyUFi"
+        }
+      ],
+      "user_mentions": [],
+      "symbols": []
+    },
+    "id_str": "1924486274448306320",
+    "text": "#VoltAgent を試した手順・内容を記事に書いた\n（ I wrote an article detailing the steps I took to try out VoltAgent ）\n\n●VoltAgent（TypeScript の AIエージェントフレームワーク）を軽く試してみる - #Qiita\nhttps://t.co/Udxy7OyUFi",
+    "user": {
+      "id_str": "62238122",
+      "name": "you",
+      "screen_name": "youtoy",
+      "is_blue_verified": false,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/512100374816124929/Scsxt-2G_normal.jpeg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1924486274448306320"
+      ],
+      "editable_until_msecs": "1747671857000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "conversation_count": 1,
+    "news_action_type": "conversation",
+    "card": {
+      "card_platform": {
+        "platform": {
+          "audience": {
+            "name": "production"
+          },
+          "device": {
+            "name": "iPhone",
+            "version": "13"
+          }
+        }
+      },
+      "name": "summary_large_image",
+      "url": "https://t.co/Udxy7OyUFi",
+      "binding_values": {
+        "photo_image_full_size_large": {
+          "image_value": {
+            "height": 419,
+            "width": 800,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=800x419"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image": {
+          "image_value": {
+            "height": 147,
+            "width": 280,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=280x150"
+          },
+          "type": "IMAGE"
+        },
+        "description": {
+          "string_value": "はじめに はてなブックマークのテクノロジーカテゴリの新着ページで、技術情報を見ていた時にみかけた「VoltAgent」を試してみました。 最近、TypeScript（や Python）の AIエージェントフレームワークを複数試して記事に書いたりもしていたのですが、そ...",
+          "type": "STRING"
+        },
+        "domain": {
+          "string_value": "qiita.com",
+          "type": "STRING"
+        },
+        "thumbnail_image_large": {
+          "image_value": {
+            "height": 315,
+            "width": 600,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=600x600"
+          },
+          "type": "IMAGE"
+        },
+        "summary_photo_image_small": {
+          "image_value": {
+            "height": 202,
+            "width": 386,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=386x202"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_original": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=orig"
+          },
+          "type": "IMAGE"
+        },
+        "site": {
+          "scribe_key": "publisher_id",
+          "type": "USER",
+          "user_value": {
+            "id_str": "341374118",
+            "path": []
+          }
+        },
+        "photo_image_full_size_small": {
+          "image_value": {
+            "height": 202,
+            "width": 386,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=386x202"
+          },
+          "type": "IMAGE"
+        },
+        "summary_photo_image_large": {
+          "image_value": {
+            "height": 419,
+            "width": 800,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=800x419"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_small": {
+          "image_value": {
+            "height": 76,
+            "width": 144,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=144x144"
+          },
+          "type": "IMAGE"
+        },
+        "creator": {
+          "type": "USER",
+          "user_value": {
+            "id_str": "62238122",
+            "path": []
+          }
+        },
+        "thumbnail_image_x_large": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=png&name=2048x2048_2_exp"
+          },
+          "type": "IMAGE"
+        },
+        "photo_image_full_size_original": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=orig"
+          },
+          "type": "IMAGE"
+        },
+        "vanity_url": {
+          "scribe_key": "vanity_url",
+          "string_value": "qiita.com",
+          "type": "STRING"
+        },
+        "photo_image_full_size": {
+          "image_value": {
+            "height": 314,
+            "width": 600,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=600x314"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_color": {
+          "image_color_value": {
+            "palette": [
+              {
+                "rgb": {
+                  "blue": 255,
+                  "green": 255,
+                  "red": 255
+                },
+                "percentage": 92.4
+              },
+              {
+                "rgb": {
+                  "blue": 127,
+                  "green": 125,
+                  "red": 124
+                },
+                "percentage": 3.22
+              },
+              {
+                "rgb": {
+                  "blue": 13,
+                  "green": 200,
+                  "red": 93
+                },
+                "percentage": 2.51
+              },
+              {
+                "rgb": {
+                  "blue": 220,
+                  "green": 151,
+                  "red": 64
+                },
+                "percentage": 1.1
+              },
+              {
+                "rgb": {
+                  "blue": 141,
+                  "green": 230,
+                  "red": 180
+                },
+                "percentage": 0.45
+              }
+            ]
+          },
+          "type": "IMAGE_COLOR"
+        },
+        "title": {
+          "string_value": "VoltAgent（TypeScript の AIエージェントフレームワーク）を軽く試してみる - Qiita",
+          "type": "STRING"
+        },
+        "summary_photo_image_color": {
+          "image_color_value": {
+            "palette": [
+              {
+                "rgb": {
+                  "blue": 255,
+                  "green": 255,
+                  "red": 255
+                },
+                "percentage": 92.4
+              },
+              {
+                "rgb": {
+                  "blue": 127,
+                  "green": 125,
+                  "red": 124
+                },
+                "percentage": 3.22
+              },
+              {
+                "rgb": {
+                  "blue": 13,
+                  "green": 200,
+                  "red": 93
+                },
+                "percentage": 2.51
+              },
+              {
+                "rgb": {
+                  "blue": 220,
+                  "green": 151,
+                  "red": 64
+                },
+                "percentage": 1.1
+              },
+              {
+                "rgb": {
+                  "blue": 141,
+                  "green": 230,
+                  "red": 180
+                },
+                "percentage": 0.45
+              }
+            ]
+          },
+          "type": "IMAGE_COLOR"
+        },
+        "summary_photo_image_x_large": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=png&name=2048x2048_2_exp"
+          },
+          "type": "IMAGE"
+        },
+        "summary_photo_image": {
+          "image_value": {
+            "height": 314,
+            "width": 600,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=600x314"
+          },
+          "type": "IMAGE"
+        },
+        "photo_image_full_size_color": {
+          "image_color_value": {
+            "palette": [
+              {
+                "rgb": {
+                  "blue": 255,
+                  "green": 255,
+                  "red": 255
+                },
+                "percentage": 92.4
+              },
+              {
+                "rgb": {
+                  "blue": 127,
+                  "green": 125,
+                  "red": 124
+                },
+                "percentage": 3.22
+              },
+              {
+                "rgb": {
+                  "blue": 13,
+                  "green": 200,
+                  "red": 93
+                },
+                "percentage": 2.51
+              },
+              {
+                "rgb": {
+                  "blue": 220,
+                  "green": 151,
+                  "red": 64
+                },
+                "percentage": 1.1
+              },
+              {
+                "rgb": {
+                  "blue": 141,
+                  "green": 230,
+                  "red": 180
+                },
+                "percentage": 0.45
+              }
+            ]
+          },
+          "type": "IMAGE_COLOR"
+        },
+        "photo_image_full_size_x_large": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=png&name=2048x2048_2_exp"
+          },
+          "type": "IMAGE"
+        },
+        "card_url": {
+          "scribe_key": "card_url",
+          "string_value": "https://t.co/Udxy7OyUFi",
+          "type": "STRING"
+        },
+        "summary_photo_image_original": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967785155780661248/De2o2Ya0?format=jpg&name=orig"
+          },
+          "type": "IMAGE"
+        }
+      }
+    },
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1924303206794059823": {
+    "__typename": "Tweet",
+    "lang": "ja",
+    "favorite_count": 43,
+    "possibly_sensitive": false,
+    "created_at": "2025-05-19T03:16:50.000Z",
+    "display_text_range": [
+      0,
+      90
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        {
+          "display_url": "youtu.be/5WARn6C9ITM?si…",
+          "expanded_url": "https://youtu.be/5WARn6C9ITM?si=rBDflUMGFNeyrorH",
+          "indices": [
+            67,
+            90
+          ],
+          "url": "https://t.co/eyIvYupNtV"
+        }
+      ],
+      "user_mentions": [],
+      "symbols": []
+    },
+    "id_str": "1924303206794059823",
+    "text": "voltagent、早速解説動画出しました！⚡️\n\n本当は言いたくない解説もしたので、絶対にみないでください！！！(見てください)\n\nhttps://t.co/eyIvYupNtV",
+    "user": {
+      "id_str": "1865265023335182337",
+      "name": "まさお@AI駆動開発",
+      "screen_name": "AI_masaou",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1872252920986828800/4S3mcVl9_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1924303206794059823"
+      ],
+      "editable_until_msecs": "1747628210000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "conversation_count": 2,
+    "news_action_type": "conversation",
+    "card": {
+      "card_platform": {
+        "platform": {
+          "audience": {
+            "name": "production"
+          },
+          "device": {
+            "name": "iPhone",
+            "version": "13"
+          }
+        }
+      },
+      "name": "player",
+      "url": "https://t.co/eyIvYupNtV",
+      "binding_values": {
+        "player_url": {
+          "string_value": "https://www.youtube.com/embed/5WARn6C9ITM",
+          "type": "STRING"
+        },
+        "player_image_large": {
+          "image_value": {
+            "height": 320,
+            "width": 569,
+            "url": "https://pbs.twimg.com/card_img/1966913695054741504/nil8VtO4?format=jpg&name=800x320_1"
+          },
+          "type": "IMAGE"
+        },
+        "player_image": {
+          "image_value": {
+            "height": 158,
+            "width": 280,
+            "url": "https://pbs.twimg.com/card_img/1966913695054741504/nil8VtO4?format=jpg&name=280x280"
+          },
+          "type": "IMAGE"
+        },
+        "app_star_rating": {
+          "string_value": "4.68058",
+          "type": "STRING"
+        },
+        "description": {
+          "string_value": "voltagent、使ってみるとその良さをすごく感じることができたので動画にしてみました。mastra一強だなと思っていましたがこれからのAgent開発はvoltagentもかなりありだと思いましたhttps://voltagent.dev/---ご視聴ありがとうございます！【まさおAIじっくり解説ch】にようこ...",
+          "type": "STRING"
+        },
+        "player_width": {
+          "string_value": "1280",
+          "type": "STRING"
+        },
+        "domain": {
+          "string_value": "www.youtube.com",
+          "type": "STRING"
+        },
+        "app_is_free": {
+          "string_value": "true",
+          "type": "STRING"
+        },
+        "site": {
+          "scribe_key": "publisher_id",
+          "type": "USER",
+          "user_value": {
+            "id_str": "10228272",
+            "path": []
+          }
+        },
+        "player_image_original": {
+          "image_value": {
+            "height": 720,
+            "width": 1280,
+            "url": "https://pbs.twimg.com/card_img/1966913695054741504/nil8VtO4?format=jpg&name=orig"
+          },
+          "type": "IMAGE"
+        },
+        "app_url_resolved": {
+          "string_value": "vnd.youtube://www.youtube.com/watch?si=rBDflUMGFNeyrorH&v=5WARn6C9ITM&feature=youtu.be&feature=applinks",
+          "type": "STRING"
+        },
+        "app_num_ratings": {
+          "string_value": "43,705,513",
+          "type": "STRING"
+        },
+        "app_price_amount": {
+          "string_value": "0.0",
+          "type": "STRING"
+        },
+        "player_height": {
+          "string_value": "720",
+          "type": "STRING"
+        },
+        "vanity_url": {
+          "scribe_key": "vanity_url",
+          "string_value": "youtube.com",
+          "type": "STRING"
+        },
+        "app_name": {
+          "string_value": "YouTube",
+          "type": "STRING"
+        },
+        "app_id": {
+          "scribe_key": "publisher_app_id",
+          "string_value": "544007664",
+          "type": "STRING"
+        },
+        "player_image_small": {
+          "image_value": {
+            "height": 81,
+            "width": 144,
+            "url": "https://pbs.twimg.com/card_img/1966913695054741504/nil8VtO4?format=jpg&name=144x144"
+          },
+          "type": "IMAGE"
+        },
+        "title": {
+          "string_value": "【これ最強】AIエージェント開発の「voltagent」が熱い！画面で見やすく、シンプルで柔軟なTypescriptベースのフレームワーク",
+          "type": "STRING"
+        },
+        "app_price_currency": {
+          "string_value": "USD",
+          "type": "STRING"
+        },
+        "app_url": {
+          "string_value": "https://t.co/redirect?url=vnd.youtube%3A%2F%2Fwww.youtube.com%2Fwatch%3Fsi%3DrBDflUMGFNeyrorH%26v%3D5WARn6C9ITM%26feature%3Dyoutu.be%26feature%3Dapplinks&sig=3a4030e30a1de501a3c5df736185d8bad86e7ee2&ssr=true&slug=eyIvYupNtV",
+          "type": "STRING"
+        },
+        "card_url": {
+          "scribe_key": "card_url",
+          "string_value": "https://t.co/eyIvYupNtV",
+          "type": "STRING"
+        },
+        "player_image_color": {
+          "image_color_value": {
+            "palette": [
+              {
+                "rgb": {
+                  "blue": 43,
+                  "green": 46,
+                  "red": 50
+                },
+                "percentage": 26.62
+              },
+              {
+                "rgb": {
+                  "blue": 136,
+                  "green": 177,
+                  "red": 216
+                },
+                "percentage": 9.87
+              },
+              {
+                "rgb": {
+                  "blue": 2,
+                  "green": 202,
+                  "red": 246
+                },
+                "percentage": 9.11
+              },
+              {
+                "rgb": {
+                  "blue": 210,
+                  "green": 13,
+                  "red": 254
+                },
+                "percentage": 4.09
+              },
+              {
+                "rgb": {
+                  "blue": 5,
+                  "green": 238,
+                  "red": 235
+                },
+                "percentage": 3.49
+              }
+            ]
+          },
+          "type": "IMAGE_COLOR"
+        },
+        "player_image_x_large": {
+          "image_value": {
+            "height": 720,
+            "width": 1280,
+            "url": "https://pbs.twimg.com/card_img/1966913695054741504/nil8VtO4?format=png&name=2048x2048_2_exp"
+          },
+          "type": "IMAGE"
+        }
+      }
+    },
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1923352273452671399": {
+    "__typename": "Tweet",
+    "in_reply_to_screen_name": "Arindam_1729",
+    "in_reply_to_status_id_str": "1923295965391327302",
+    "in_reply_to_user_id_str": "1533666605279891457",
+    "lang": "en",
+    "favorite_count": 4,
+    "created_at": "2025-05-16T12:18:10.000Z",
+    "display_text_range": [
+      29,
+      147
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "user_mentions": [
+        {
+          "id_str": "1533666605279891457",
+          "indices": [
+            0,
+            13
+          ],
+          "name": "Arindam Majumder 𝕏",
+          "screen_name": "Arindam_1729"
+        },
+        {
+          "id_str": "1912724805406863360",
+          "indices": [
+            14,
+            28
+          ],
+          "name": "voltagent",
+          "screen_name": "voltagent_dev"
+        }
+      ],
+      "symbols": []
+    },
+    "id_str": "1923352273452671399",
+    "text": "@Arindam_1729 @voltagent_dev It’s super easy to use! I imported the repo and used the docs for context with Windsurf and I made 3 agents yesterday.",
+    "user": {
+      "id_str": "691253",
+      "name": "Seth Rose",
+      "screen_name": "TheSethRose",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1967578383845392384/MgKfF1Gc_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1923352273452671399"
+      ],
+      "editable_until_msecs": "1747401490000",
+      "is_edit_eligible": false,
+      "edits_remaining": "5"
+    },
+    "conversation_count": 1,
+    "news_action_type": "conversation",
+    "parent": {
+      "in_reply_to_screen_name": "TheSethRose",
+      "in_reply_to_status_id_str": "1923205085972021577",
+      "in_reply_to_user_id_str": "691253",
+      "lang": "en",
+      "reply_count": 2,
+      "retweet_count": 0,
+      "favorite_count": 4,
+      "created_at": "2025-05-16T08:34:25.000Z",
+      "display_text_range": [
+        28,
+        51
+      ],
+      "entities": {
+        "hashtags": [],
+        "urls": [],
+        "user_mentions": [
+          {
+            "id_str": "691253",
+            "indices": [
+              0,
+              12
+            ],
+            "name": "Seth Rose",
+            "screen_name": "TheSethRose"
+          },
+          {
+            "id_str": "1912724805406863360",
+            "indices": [
+              13,
+              27
+            ],
+            "name": "voltagent",
+            "screen_name": "voltagent_dev"
+          }
+        ],
+        "symbols": []
+      },
+      "id_str": "1923295965391327302",
+      "text": "@TheSethRose @voltagent_dev IT's on my list to try!",
+      "user": {
+        "id_str": "1533666605279891457",
+        "name": "Arindam Majumder 𝕏",
+        "screen_name": "Arindam_1729",
+        "is_blue_verified": true,
+        "profile_image_shape": "Circle",
+        "verified": false,
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1620795664589266944/XBEbRjPN_normal.jpg"
+      },
+      "edit_control": {
+        "edit_tweet_ids": [
+          "1923295965391327302"
+        ],
+        "editable_until_msecs": "1747388065000",
+        "is_edit_eligible": false,
+        "edits_remaining": "5"
+      },
+      "isEdited": false,
+      "isStaleEdit": false
+    },
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1920502438215250259": {
+    "__typename": "Tweet",
+    "lang": "en",
+    "favorite_count": 254,
+    "possibly_sensitive": false,
+    "created_at": "2025-05-08T15:33:57.000Z",
+    "display_text_range": [
+      0,
+      86
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "user_mentions": [],
+      "symbols": [],
+      "media": [
+        {
+          "display_url": "pic.x.com/SHO0Jbui4m",
+          "expanded_url": "https://x.com/GithubProjects/status/1920502438215250259/photo/1",
+          "indices": [
+            87,
+            110
+          ],
+          "url": "https://t.co/SHO0Jbui4m"
+        }
+      ]
+    },
+    "id_str": "1920502438215250259",
+    "text": "Build powerful AI agents without the boilerplate. Just TypeScript, logic, and control. https://t.co/SHO0Jbui4m",
+    "user": {
+      "id_str": "1315639147248246785",
+      "name": "GitHub Projects Community",
+      "screen_name": "GithubProjects",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1679831765744259073/hoVtsOZ9_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1920502438215250259"
+      ],
+      "editable_until_msecs": "1746722037000",
+      "is_edit_eligible": false,
+      "edits_remaining": "5"
+    },
+    "mediaDetails": [
+      {
+        "display_url": "pic.x.com/SHO0Jbui4m",
+        "expanded_url": "https://x.com/GithubProjects/status/1920502438215250259/photo/1",
+        "ext_media_availability": {
+          "status": "Available"
+        },
+        "indices": [
+          87,
+          110
+        ],
+        "media_url_https": "https://pbs.twimg.com/media/Gqb-yHKXsAATKas.jpg",
+        "original_info": {
+          "height": 1349,
+          "width": 1080,
+          "focus_rects": [
+            {
+              "x": 0,
+              "y": 608,
+              "w": 1080,
+              "h": 605
+            },
+            {
+              "x": 0,
+              "y": 269,
+              "w": 1080,
+              "h": 1080
+            },
+            {
+              "x": 0,
+              "y": 118,
+              "w": 1080,
+              "h": 1231
+            },
+            {
+              "x": 203,
+              "y": 0,
+              "w": 675,
+              "h": 1349
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "w": 1080,
+              "h": 1349
+            }
+          ]
+        },
+        "sizes": {
+          "large": {
+            "h": 1349,
+            "resize": "fit",
+            "w": 1080
+          },
+          "medium": {
+            "h": 1200,
+            "resize": "fit",
+            "w": 961
+          },
+          "small": {
+            "h": 680,
+            "resize": "fit",
+            "w": 544
+          },
+          "thumb": {
+            "h": 150,
+            "resize": "crop",
+            "w": 150
+          }
+        },
+        "type": "photo",
+        "url": "https://t.co/SHO0Jbui4m"
+      }
+    ],
+    "photos": [
+      {
+        "backgroundColor": {
+          "red": 204,
+          "green": 214,
+          "blue": 221
+        },
+        "cropCandidates": [
+          {
+            "x": 0,
+            "y": 608,
+            "w": 1080,
+            "h": 605
+          },
+          {
+            "x": 0,
+            "y": 269,
+            "w": 1080,
+            "h": 1080
+          },
+          {
+            "x": 0,
+            "y": 118,
+            "w": 1080,
+            "h": 1231
+          },
+          {
+            "x": 203,
+            "y": 0,
+            "w": 675,
+            "h": 1349
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1349
+          }
+        ],
+        "expandedUrl": "https://x.com/GithubProjects/status/1920502438215250259/photo/1",
+        "url": "https://pbs.twimg.com/media/Gqb-yHKXsAATKas.jpg",
+        "width": 1080,
+        "height": 1349
+      }
+    ],
+    "conversation_count": 3,
+    "news_action_type": "conversation",
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1924058575485403362": {
+    "__typename": "Tweet",
+    "lang": "ja",
+    "favorite_count": 60,
+    "possibly_sensitive": false,
+    "created_at": "2025-05-18T11:04:46.000Z",
+    "display_text_range": [
+      0,
+      157
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        {
+          "display_url": "voltagent.dev",
+          "expanded_url": "https://voltagent.dev/",
+          "indices": [
+            134,
+            157
+          ],
+          "url": "https://t.co/CiddI3z4yw"
+        }
+      ],
+      "user_mentions": [],
+      "symbols": []
+    },
+    "id_str": "1924058575485403362",
+    "text": "明日はこれを触るか……。\n\nAIエージェント系、どんどん発展してますね。\n\n最終的にはOpenAI、Google、あるいは中国系AIが総取りなんだろうけど。\n\nVoltAgent - Open Source TypeScript AI Agent Framework https://t.co/CiddI3z4yw",
+    "user": {
+      "id_str": "79119874",
+      "name": "🍺 ikehaya@TVアニメ「クリプトニンジャ咲耶」",
+      "screen_name": "IHayato",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1613769723065532416/FMH_NlQh_normal.png"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1924058575485403362"
+      ],
+      "editable_until_msecs": "1747569886000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "conversation_count": 2,
+    "news_action_type": "conversation",
+    "card": {
+      "card_platform": {
+        "platform": {
+          "audience": {
+            "name": "production"
+          },
+          "device": {
+            "name": "iPhone",
+            "version": "13"
+          }
+        }
+      },
+      "name": "summary_large_image",
+      "url": "https://t.co/CiddI3z4yw",
+      "binding_values": {
+        "photo_image_full_size_large": {
+          "image_value": {
+            "height": 419,
+            "width": 800,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=800x419"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image": {
+          "image_value": {
+            "height": 147,
+            "width": 280,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=280x150"
+          },
+          "type": "IMAGE"
+        },
+        "description": {
+          "string_value": "VoltAgent is an observability-first TypeScript AI Agent framework.",
+          "type": "STRING"
+        },
+        "domain": {
+          "string_value": "voltagent.dev",
+          "type": "STRING"
+        },
+        "thumbnail_image_large": {
+          "image_value": {
+            "height": 315,
+            "width": 600,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=600x600"
+          },
+          "type": "IMAGE"
+        },
+        "summary_photo_image_small": {
+          "image_value": {
+            "height": 202,
+            "width": 386,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=386x202"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_original": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=orig"
+          },
+          "type": "IMAGE"
+        },
+        "photo_image_full_size_small": {
+          "image_value": {
+            "height": 202,
+            "width": 386,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=386x202"
+          },
+          "type": "IMAGE"
+        },
+        "summary_photo_image_large": {
+          "image_value": {
+            "height": 419,
+            "width": 800,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=800x419"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_small": {
+          "image_value": {
+            "height": 76,
+            "width": 144,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=144x144"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_x_large": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=2048x2048_2_exp"
+          },
+          "type": "IMAGE"
+        },
+        "photo_image_full_size_original": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=orig"
+          },
+          "type": "IMAGE"
+        },
+        "vanity_url": {
+          "scribe_key": "vanity_url",
+          "string_value": "voltagent.dev",
+          "type": "STRING"
+        },
+        "photo_image_full_size": {
+          "image_value": {
+            "height": 314,
+            "width": 600,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=600x314"
+          },
+          "type": "IMAGE"
+        },
+        "thumbnail_image_color": {
+          "image_color_value": {
+            "palette": [
+              {
+                "rgb": {
+                  "blue": 34,
+                  "green": 34,
+                  "red": 34
+                },
+                "percentage": 93.83
+              },
+              {
+                "rgb": {
+                  "blue": 72,
+                  "green": 96,
+                  "red": 22
+                },
+                "percentage": 2.33
+              },
+              {
+                "rgb": {
+                  "blue": 126,
+                  "green": 184,
+                  "red": 5
+                },
+                "percentage": 2.27
+              },
+              {
+                "rgb": {
+                  "blue": 147,
+                  "green": 147,
+                  "red": 147
+                },
+                "percentage": 1.54
+              }
+            ]
+          },
+          "type": "IMAGE_COLOR"
+        },
+        "title": {
+          "string_value": "VoltAgent - Open Source TypeScript AI Agent Framework",
+          "type": "STRING"
+        },
+        "summary_photo_image_color": {
+          "image_color_value": {
+            "palette": [
+              {
+                "rgb": {
+                  "blue": 34,
+                  "green": 34,
+                  "red": 34
+                },
+                "percentage": 93.83
+              },
+              {
+                "rgb": {
+                  "blue": 72,
+                  "green": 96,
+                  "red": 22
+                },
+                "percentage": 2.33
+              },
+              {
+                "rgb": {
+                  "blue": 126,
+                  "green": 184,
+                  "red": 5
+                },
+                "percentage": 2.27
+              },
+              {
+                "rgb": {
+                  "blue": 147,
+                  "green": 147,
+                  "red": 147
+                },
+                "percentage": 1.54
+              }
+            ]
+          },
+          "type": "IMAGE_COLOR"
+        },
+        "summary_photo_image_x_large": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=2048x2048_2_exp"
+          },
+          "type": "IMAGE"
+        },
+        "summary_photo_image": {
+          "image_value": {
+            "height": 314,
+            "width": 600,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=600x314"
+          },
+          "type": "IMAGE"
+        },
+        "photo_image_full_size_color": {
+          "image_color_value": {
+            "palette": [
+              {
+                "rgb": {
+                  "blue": 34,
+                  "green": 34,
+                  "red": 34
+                },
+                "percentage": 93.83
+              },
+              {
+                "rgb": {
+                  "blue": 72,
+                  "green": 96,
+                  "red": 22
+                },
+                "percentage": 2.33
+              },
+              {
+                "rgb": {
+                  "blue": 126,
+                  "green": 184,
+                  "red": 5
+                },
+                "percentage": 2.27
+              },
+              {
+                "rgb": {
+                  "blue": 147,
+                  "green": 147,
+                  "red": 147
+                },
+                "percentage": 1.54
+              }
+            ]
+          },
+          "type": "IMAGE_COLOR"
+        },
+        "photo_image_full_size_x_large": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=2048x2048_2_exp"
+          },
+          "type": "IMAGE"
+        },
+        "card_url": {
+          "scribe_key": "card_url",
+          "string_value": "https://t.co/CiddI3z4yw",
+          "type": "STRING"
+        },
+        "summary_photo_image_original": {
+          "image_value": {
+            "height": 630,
+            "width": 1200,
+            "url": "https://pbs.twimg.com/card_img/1967218425677148161/og7s0N00?format=png&name=orig"
+          },
+          "type": "IMAGE"
+        }
+      }
+    },
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1916757463426302247": {
+    "__typename": "Tweet",
+    "lang": "en",
+    "favorite_count": 137,
+    "possibly_sensitive": false,
+    "created_at": "2025-04-28T07:32:45.000Z",
+    "display_text_range": [
+      0,
+      225
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        {
+          "display_url": "voltagent.dev",
+          "expanded_url": "https://voltagent.dev/",
+          "indices": [
+            201,
+            224
+          ],
+          "url": "https://t.co/LtTAdsk9qW"
+        }
+      ],
+      "user_mentions": [
+        {
+          "id_str": "1912724805406863360",
+          "indices": [
+            73,
+            87
+          ],
+          "name": "voltagent",
+          "screen_name": "voltagent_dev"
+        }
+      ],
+      "symbols": [],
+      "media": [
+        {
+          "display_url": "pic.x.com/6Y5ymA9SxO",
+          "expanded_url": "https://x.com/jsmasterypro/status/1916757463426302247/video/1",
+          "indices": [
+            225,
+            248
+          ],
+          "url": "https://t.co/6Y5ymA9SxO"
+        }
+      ]
+    },
+    "id_str": "1916757463426302247",
+    "text": "JavaScript devs working in AI, this is worth a look...\n\nJust came across @voltagent_dev. They’re bridging the gap → code-first flexibility meets visual intuition, built specifically for JavaScript.\n\n👉 https://t.co/LtTAdsk9qW https://t.co/6Y5ymA9SxO",
+    "user": {
+      "id_str": "1081110908116631552",
+      "name": "Adrian | JavaScript Mastery",
+      "screen_name": "jsmasterypro",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1727253129513549824/EYZ8p0PT_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1916757463426302247"
+      ],
+      "editable_until_msecs": "1745829165000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "mediaDetails": [
+      {
+        "additional_media_info": {},
+        "display_url": "pic.x.com/6Y5ymA9SxO",
+        "expanded_url": "https://x.com/jsmasterypro/status/1916757463426302247/video/1",
+        "ext_media_availability": {
+          "status": "Available"
+        },
+        "indices": [
+          225,
+          248
+        ],
+        "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/1916753752469680128/img/EJBNAz6liG55s3vV.jpg",
+        "original_info": {
+          "height": 1430,
+          "width": 2608,
+          "focus_rects": []
+        },
+        "sizes": {
+          "large": {
+            "h": 1123,
+            "resize": "fit",
+            "w": 2048
+          },
+          "medium": {
+            "h": 658,
+            "resize": "fit",
+            "w": 1200
+          },
+          "small": {
+            "h": 373,
+            "resize": "fit",
+            "w": 680
+          },
+          "thumb": {
+            "h": 150,
+            "resize": "crop",
+            "w": 150
+          }
+        },
+        "type": "video",
+        "url": "https://t.co/6Y5ymA9SxO",
+        "video_info": {
+          "aspect_ratio": [
+            1304,
+            715
+          ],
+          "duration_millis": 10183,
+          "variants": [
+            {
+              "content_type": "application/x-mpegURL",
+              "url": "https://video.twimg.com/amplify_video/1916753752469680128/pl/ct6qYKBgeW5u8zZD.m3u8?tag=16"
+            },
+            {
+              "bitrate": 288000,
+              "content_type": "video/mp4",
+              "url": "https://video.twimg.com/amplify_video/1916753752469680128/vid/avc1/492x270/NdIAPWWqv_iRYvG_.mp4?tag=16"
+            },
+            {
+              "bitrate": 832000,
+              "content_type": "video/mp4",
+              "url": "https://video.twimg.com/amplify_video/1916753752469680128/vid/avc1/656x360/BjH8o8Mk340CUj6I.mp4?tag=16"
+            },
+            {
+              "bitrate": 2176000,
+              "content_type": "video/mp4",
+              "url": "https://video.twimg.com/amplify_video/1916753752469680128/vid/avc1/1312x720/YSHW95yBrxXbUltN.mp4?tag=16"
+            },
+            {
+              "bitrate": 10368000,
+              "content_type": "video/mp4",
+              "url": "https://video.twimg.com/amplify_video/1916753752469680128/vid/avc1/1968x1080/akiRgZWd2hdd7baG.mp4?tag=16"
+            }
+          ]
+        }
+      }
+    ],
+    "photos": [],
+    "video": {
+      "aspectRatio": [
+        1304,
+        715
+      ],
+      "contentType": "media_entity",
+      "durationMs": 10183,
+      "mediaAvailability": {
+        "status": "available"
+      },
+      "poster": "https://pbs.twimg.com/amplify_video_thumb/1916753752469680128/img/EJBNAz6liG55s3vV.jpg",
+      "variants": [
+        {
+          "type": "application/x-mpegURL",
+          "src": "https://video.twimg.com/amplify_video/1916753752469680128/pl/ct6qYKBgeW5u8zZD.m3u8?tag=16"
+        },
+        {
+          "type": "video/mp4",
+          "src": "https://video.twimg.com/amplify_video/1916753752469680128/vid/avc1/492x270/NdIAPWWqv_iRYvG_.mp4?tag=16"
+        },
+        {
+          "type": "video/mp4",
+          "src": "https://video.twimg.com/amplify_video/1916753752469680128/vid/avc1/656x360/BjH8o8Mk340CUj6I.mp4?tag=16"
+        },
+        {
+          "type": "video/mp4",
+          "src": "https://video.twimg.com/amplify_video/1916753752469680128/vid/avc1/1312x720/YSHW95yBrxXbUltN.mp4?tag=16"
+        },
+        {
+          "type": "video/mp4",
+          "src": "https://video.twimg.com/amplify_video/1916753752469680128/vid/avc1/1968x1080/akiRgZWd2hdd7baG.mp4?tag=16"
+        }
+      ],
+      "videoId": {
+        "type": "tweet",
+        "id": "1916757463426302247"
+      },
+      "viewCount": 0
+    },
+    "conversation_count": 6,
+    "news_action_type": "conversation",
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1915200495461028321": {
+    "__typename": "Tweet",
+    "lang": "zh",
+    "favorite_count": 124,
+    "possibly_sensitive": false,
+    "created_at": "2025-04-24T00:25:55.000Z",
+    "display_text_range": [
+      0,
+      131
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        {
+          "display_url": "github.com/VoltAgent/volt…",
+          "expanded_url": "https://github.com/VoltAgent/voltagent",
+          "indices": [
+            107,
+            130
+          ],
+          "url": "https://t.co/MaiM9xMKxU"
+        }
+      ],
+      "user_mentions": [],
+      "symbols": [],
+      "media": [
+        {
+          "display_url": "pic.x.com/yzFhuynSo6",
+          "expanded_url": "https://x.com/geekbb/status/1915200495461028321/photo/1",
+          "indices": [
+            131,
+            154
+          ],
+          "url": "https://t.co/yzFhuynSo6"
+        }
+      ]
+    },
+    "id_str": "1915200495461028321",
+    "text": "像拼乐高一样组合 AI 功能\nVoltAgent  一个开源的 TypeScript 框架，专为快速构建AI智能体应用设计。它通过提供现成模块和工具包，让开发者无需从零写代码就能创建由大语言模型驱动的智能系统。\n🧩https://t.co/MaiM9xMKxU https://t.co/yzFhuynSo6",
+    "user": {
+      "id_str": "168139512",
+      "name": "Geek",
+      "screen_name": "geekbb",
+      "is_blue_verified": false,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1644898947272671233/7959WGOK_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1915200495461028321"
+      ],
+      "editable_until_msecs": "1745457955000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "mediaDetails": [
+      {
+        "display_url": "pic.x.com/yzFhuynSo6",
+        "expanded_url": "https://x.com/geekbb/status/1915200495461028321/photo/1",
+        "ext_media_availability": {
+          "status": "Available"
+        },
+        "indices": [
+          131,
+          154
+        ],
+        "media_url_https": "https://pbs.twimg.com/media/GpQoc6uaAAAAXOM.jpg",
+        "original_info": {
+          "height": 1290,
+          "width": 1792,
+          "focus_rects": [
+            {
+              "x": 0,
+              "y": 286,
+              "w": 1792,
+              "h": 1004
+            },
+            {
+              "x": 251,
+              "y": 0,
+              "w": 1290,
+              "h": 1290
+            },
+            {
+              "x": 330,
+              "y": 0,
+              "w": 1132,
+              "h": 1290
+            },
+            {
+              "x": 574,
+              "y": 0,
+              "w": 645,
+              "h": 1290
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "w": 1792,
+              "h": 1290
+            }
+          ]
+        },
+        "sizes": {
+          "large": {
+            "h": 1290,
+            "resize": "fit",
+            "w": 1792
+          },
+          "medium": {
+            "h": 864,
+            "resize": "fit",
+            "w": 1200
+          },
+          "small": {
+            "h": 490,
+            "resize": "fit",
+            "w": 680
+          },
+          "thumb": {
+            "h": 150,
+            "resize": "crop",
+            "w": 150
+          }
+        },
+        "type": "photo",
+        "url": "https://t.co/yzFhuynSo6"
+      }
+    ],
+    "photos": [
+      {
+        "backgroundColor": {
+          "red": 204,
+          "green": 214,
+          "blue": 221
+        },
+        "cropCandidates": [
+          {
+            "x": 0,
+            "y": 286,
+            "w": 1792,
+            "h": 1004
+          },
+          {
+            "x": 251,
+            "y": 0,
+            "w": 1290,
+            "h": 1290
+          },
+          {
+            "x": 330,
+            "y": 0,
+            "w": 1132,
+            "h": 1290
+          },
+          {
+            "x": 574,
+            "y": 0,
+            "w": 645,
+            "h": 1290
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "w": 1792,
+            "h": 1290
+          }
+        ],
+        "expandedUrl": "https://x.com/geekbb/status/1915200495461028321/photo/1",
+        "url": "https://pbs.twimg.com/media/GpQoc6uaAAAAXOM.jpg",
+        "width": 1792,
+        "height": 1290
+      }
+    ],
+    "conversation_count": 6,
+    "news_action_type": "conversation",
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "1924262217924653243": {
+    "__typename": "Tweet",
+    "lang": "ja",
+    "favorite_count": 20,
+    "created_at": "2025-05-19T00:33:58.000Z",
+    "display_text_range": [
+      0,
+      45
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "user_mentions": [],
+      "symbols": []
+    },
+    "id_str": "1924262217924653243",
+    "text": "朝活でVoltAgentをちゃんと使ってみている\n直感的で良い\n\nこれは流行るかもしれない",
+    "user": {
+      "id_str": "1865265023335182337",
+      "name": "まさお@AI駆動開発",
+      "screen_name": "AI_masaou",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1872252920986828800/4S3mcVl9_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "1924262217924653243"
+      ],
+      "editable_until_msecs": "1747618438000",
+      "is_edit_eligible": true,
+      "edits_remaining": "5"
+    },
+    "conversation_count": 2,
+    "news_action_type": "conversation",
+    "isEdited": false,
+    "isStaleEdit": false
+  }
+}

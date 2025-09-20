@@ -1,9 +1,10 @@
+import tweetsData from "@site/src/data/tweets.json";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ClientTweetCard } from "../magicui/tweet-card-client";
 import { ArticleCard } from "./ArticleCard";
 import { DiscordMessage } from "./DiscordMessage";
 import { LinkedInMessage } from "./LinkedInMessage";
 import { LinkedInPost } from "./LinkedInPost";
+import { StaticTweet } from "./StaticTweet";
 
 // Seamless infinite scroll CSS with calculated values
 const scrollAnimation = `
@@ -478,7 +479,7 @@ export function Testimonials() {
                 {seamlessMixedContent.map((item, index) => (
                   <div key={`${item.key}-${index}`} className="flex-shrink-0 w-80">
                     {item.type === "tweet" ? (
-                      <ClientTweetCard id={item.id} />
+                      <StaticTweet tweet={tweetsData[item.id]} />
                     ) : (
                       <LinkedInPost
                         profileImage={item.data.profileImage}

@@ -91,6 +91,7 @@ const config: Config = {
         sidebarCollapsed: false,
       },
     ],
+    "./plugins/fetch-tweets.js",
     "./plugins/clarity/index.js",
     "./plugins/ahrefs/index.js",
     [
