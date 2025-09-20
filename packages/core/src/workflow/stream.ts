@@ -1,3 +1,5 @@
+import type { DangerouslyAllowAny } from "@voltagent/internal/types";
+import type { VoltAgentTextStreamPart } from "../agent/subagent/types";
 import type { UserContext } from "../agent/types";
 import type { WorkflowStreamEvent, WorkflowStreamWriter } from "./types";
 
@@ -92,7 +94,7 @@ export class NoOpWorkflowStreamWriter implements WorkflowStreamWriter {
   }
 
   async pipeFrom(
-    _fullStream: AsyncIterable<any>,
+    _fullStream: AsyncIterable<VoltAgentTextStreamPart<any>>,
     _options?: {
       prefix?: string;
       agentId?: string;
@@ -142,7 +144,7 @@ export class WorkflowStreamWriterImpl implements WorkflowStreamWriter {
    * Pipe events from an agent's fullStream to the workflow stream
    */
   async pipeFrom(
-    fullStream: AsyncIterable<any>,
+    fullStream: AsyncIterable<VoltAgentTextStreamPart<any>>,
     options?: {
       prefix?: string;
       agentId?: string;
@@ -158,34 +160,172 @@ export class WorkflowStreamWriterImpl implements WorkflowStreamWriter {
       }
 
       // Convert StreamPart to WorkflowStreamEvent with proper field mapping
+      const metadata: Record<string, DangerouslyAllowAny> = {
+        originalType: part.type,
+      };
+
+      if ("id" in part && part.id !== undefined) {
+        metadata.partId = part.id;
+      }
+
+      if ("providerMetadata" in part && part.providerMetadata !== undefined) {
+        metadata.providerMetadata = part.providerMetadata;
+      }
+
+      if (part.subAgentId) {
+        metadata.subAgentId = part.subAgentId;
+      }
+
+      if (part.subAgentName) {
+        metadata.subAgentName = part.subAgentName;
+      }
+
+      let input: DangerouslyAllowAny | undefined;
+      let output: DangerouslyAllowAny | undefined;
+      let status: WorkflowStreamEvent["status"] | undefined;
+      let error: DangerouslyAllowAny | undefined;
+
+      switch (part.type) {
+        case "text-delta": {
+          const delta =
+            part.text ?? ("delta" in part ? (part as { delta?: string }).delta : undefined);
+          if (delta !== undefined) {
+            output = delta;
+          }
+          break;
+        }
+        case "tool-call": {
+          metadata.toolName = part.toolName;
+          metadata.toolCallId = part.toolCallId;
+
+          if (part.providerExecuted !== undefined) {
+            metadata.providerExecuted = part.providerExecuted;
+          }
+
+          if (part.dynamic !== undefined) {
+            metadata.dynamic = part.dynamic;
+          }
+
+          if ("invalid" in part && part.invalid !== undefined) {
+            metadata.invalid = part.invalid;
+          }
+
+          if ("error" in part && part.error !== undefined) {
+            metadata.toolCallError = part.error;
+          }
+
+          input = part.input;
+          break;
+        }
+        case "tool-result": {
+          metadata.toolName = part.toolName;
+          metadata.toolCallId = part.toolCallId;
+
+          if (part.providerExecuted !== undefined) {
+            metadata.providerExecuted = part.providerExecuted;
+          }
+
+          if (part.dynamic !== undefined) {
+            metadata.dynamic = part.dynamic;
+          }
+
+          if ("preliminary" in part && part.preliminary !== undefined) {
+            metadata.preliminary = part.preliminary;
+          }
+
+          input = part.input;
+          output = part.output;
+          break;
+        }
+        case "tool-error": {
+          metadata.toolName = part.toolName;
+          metadata.toolCallId = part.toolCallId;
+
+          if (part.providerExecuted !== undefined) {
+            metadata.providerExecuted = part.providerExecuted;
+          }
+
+          if (part.dynamic !== undefined) {
+            metadata.dynamic = part.dynamic;
+          }
+
+          input = part.input;
+          error = part.error;
+          status = "error";
+          break;
+        }
+        case "finish": {
+          metadata.finishReason = part.finishReason;
+          metadata.usage = part.totalUsage;
+          status = "success";
+          break;
+        }
+        case "error": {
+          error = part.error;
+          metadata.error = part.error;
+          status = "error";
+          break;
+        }
+        case "reasoning-delta": {
+          metadata.reasoningText = part.text;
+          break;
+        }
+        case "tool-input-start": {
+          metadata.toolName = part.toolName;
+          if (part.providerExecuted !== undefined) {
+            metadata.providerExecuted = part.providerExecuted;
+          }
+          if (part.dynamic !== undefined) {
+            metadata.dynamic = part.dynamic;
+          }
+          break;
+        }
+        case "tool-input-delta": {
+          metadata.toolInputDelta = part.delta;
+          break;
+        }
+        case "start-step": {
+          metadata.request = part.request;
+          metadata.warnings = part.warnings;
+          break;
+        }
+        case "finish-step": {
+          metadata.response = part.response;
+          metadata.usage = part.usage;
+          metadata.finishReason = part.finishReason;
+          break;
+        }
+        case "source": {
+          metadata.source = part;
+          break;
+        }
+        case "file": {
+          metadata.file = part.file;
+          break;
+        }
+        case "raw": {
+          metadata.rawValue = part.rawValue;
+          break;
+        }
+        case "abort": {
+          metadata.aborted = true;
+          status = "error";
+          break;
+        }
+        default: {
+          // Other event types don't need special handling
+          break;
+        }
+      }
+
       this.write({
         type: `${prefix}${part.type}`,
         from: options?.agentId || part.subAgentId || part.subAgentName || this.stepName,
-        // Use proper WorkflowStreamEvent fields
-        input: part.type === "tool-call" ? part.args : undefined,
-        output:
-          part.type === "text-delta"
-            ? part.textDelta
-            : part.type === "tool-result"
-              ? part.result
-              : undefined,
-        metadata: {
-          originalType: part.type,
-          // Only include relevant metadata per type
-          ...(part.type === "tool-call" && {
-            toolName: part.toolName,
-            toolCallId: part.toolCallId,
-          }),
-          ...(part.type === "tool-result" && {
-            toolName: part.toolName,
-            toolCallId: part.toolCallId,
-          }),
-          ...(part.type === "finish" && {
-            finishReason: part.finishReason,
-            usage: part.usage,
-          }),
-          ...(part.type === "error" && { error: part.error }),
-        },
+        input,
+        output,
+        status,
+        error,
+        metadata,
       });
     }
   }
