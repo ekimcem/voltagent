@@ -40,7 +40,12 @@ const sidebars: SidebarsConfig = {
         "agents/prompts",
         "agents/tools",
         "agents/memory",
-        "agents/mcp",
+        {
+          type: "category",
+          label: "MCP",
+          items: ["agents/mcp/mcp", "agents/mcp/mcp-server"],
+        },
+        "agents/a2a/a2a-server",
         "agents/hooks",
         "agents/multi-modal",
         "agents/providers",
