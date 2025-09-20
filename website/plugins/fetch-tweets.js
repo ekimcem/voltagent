@@ -2,6 +2,142 @@ const { getTweet } = require("react-tweet/api");
 const fs = require("node:fs");
 const path = require("node:path");
 
+const pick = (source, keys) => {
+  if (!source) {
+    return undefined;
+  }
+
+  const result = {};
+  for (const key of keys) {
+    const value = source[key];
+    if (value !== undefined && value !== null) {
+      result[key] = value;
+    }
+  }
+
+  return Object.keys(result).length > 0 ? result : undefined;
+};
+
+const sanitizeArray = (items, mapper) => {
+  if (!Array.isArray(items)) {
+    return undefined;
+  }
+
+  const sanitized = items.map((item) => mapper(item)).filter((item) => item !== undefined);
+
+  return sanitized.length > 0 ? sanitized : undefined;
+};
+
+const compactObject = (object) => {
+  const result = {};
+  for (const [key, value] of Object.entries(object)) {
+    if (value === undefined) {
+      continue;
+    }
+
+    result[key] = value;
+  }
+
+  return Object.keys(result).length > 0 ? result : undefined;
+};
+
+const sanitizeUser = (user) =>
+  pick(user, [
+    "id_str",
+    "name",
+    "screen_name",
+    "profile_image_url_https",
+    "profile_image_shape",
+    "verified",
+    "is_blue_verified",
+  ]);
+
+const sanitizeEntities = (entities) => {
+  if (!entities) {
+    return undefined;
+  }
+
+  return compactObject({
+    hashtags: sanitizeArray(entities.hashtags, (item) => pick(item, ["indices", "text"])),
+    urls: sanitizeArray(entities.urls, (item) =>
+      pick(item, ["indices", "url", "display_url", "expanded_url"]),
+    ),
+    user_mentions: sanitizeArray(entities.user_mentions, (item) =>
+      pick(item, ["indices", "id_str", "name", "screen_name"]),
+    ),
+    symbols: sanitizeArray(entities.symbols, (item) => pick(item, ["indices", "text"])),
+    media: sanitizeArray(entities.media, (item) =>
+      pick(item, ["indices", "url", "display_url", "expanded_url"]),
+    ),
+  });
+};
+
+const sanitizePhoto = (photo) =>
+  pick(photo, ["url", "width", "height", "expandedUrl", "backgroundColor"]);
+
+const sanitizeVideo = (video) => {
+  if (!video) {
+    return undefined;
+  }
+
+  const variants = sanitizeArray(video.variants, (variant) => pick(variant, ["src", "type"]));
+
+  return compactObject({
+    poster: video.poster,
+    variants,
+  });
+};
+
+const sanitizeCard = (card) => {
+  if (!card) {
+    return undefined;
+  }
+
+  const thumbnail = card.binding_values?.thumbnail_image_large;
+  if (!thumbnail) {
+    return undefined;
+  }
+
+  return compactObject({
+    binding_values: {
+      thumbnail_image_large: thumbnail,
+    },
+    name: card.name,
+    url: card.url,
+  });
+};
+
+const sanitizeTweet = (tweet) => {
+  if (!tweet) {
+    return undefined;
+  }
+
+  const sanitized =
+    compactObject({
+      __typename: tweet.__typename,
+      id_str: tweet.id_str,
+      text: tweet.text,
+      created_at: tweet.created_at,
+      lang: tweet.lang,
+      display_text_range: Array.isArray(tweet.display_text_range)
+        ? tweet.display_text_range
+        : undefined,
+      entities: sanitizeEntities(tweet.entities),
+      user: sanitizeUser(tweet.user),
+      photos: sanitizeArray(tweet.photos, sanitizePhoto),
+      video: sanitizeVideo(tweet.video),
+      card: sanitizeCard(tweet.card),
+      in_reply_to_screen_name: tweet.in_reply_to_screen_name,
+      in_reply_to_status_id_str: tweet.in_reply_to_status_id_str,
+    }) || {};
+
+  if (tweet.quoted_tweet) {
+    sanitized.quoted_tweet = sanitizeTweet(tweet.quoted_tweet);
+  }
+
+  return sanitized;
+};
+
 // Tweet IDs to fetch at build time
 const testimonialTweetIds = [
   "1916955895709503681",
@@ -34,7 +170,7 @@ async function fetchTweets() {
       console.log(`  Fetching tweet ${id}...`);
       const tweet = await getTweet(id);
       if (tweet) {
-        tweets[id] = tweet;
+        tweets[id] = sanitizeTweet(tweet);
         successCount++;
       } else {
         console.warn(`  ⚠️  Tweet ${id} returned null`);
@@ -65,7 +201,8 @@ module.exports = (_, __) => ({
     const { createData } = actions;
 
     // Create a data file that can be imported in components
-    const tweetsJsonPath = await createData("tweets.json", JSON.stringify(content, null, 2));
+    const tweetsJson = JSON.stringify(content, null, 2);
+    const tweetsJsonPath = await createData("tweets.json", tweetsJson);
 
     // Also save to src/data for type safety
     const dataDir = path.join(__dirname, "../src/data");
@@ -73,8 +210,10 @@ module.exports = (_, __) => ({
       fs.mkdirSync(dataDir, { recursive: true });
     }
 
-    fs.writeFileSync(path.join(dataDir, "tweets.json"), JSON.stringify(content, null, 2));
+    fs.writeFileSync(path.join(dataDir, "tweets.json"), tweetsJson);
 
     console.log(`💾 Saved tweet data to ${tweetsJsonPath}`);
   },
 });
+
+module.exports.sanitizeTweet = sanitizeTweet;
