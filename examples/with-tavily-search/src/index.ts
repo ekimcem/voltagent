@@ -1,5 +1,6 @@
 import { openai } from "@ai-sdk/openai";
-import { Agent, VoltAgent } from "@voltagent/core";
+import { Agent, Memory, VoltAgent } from "@voltagent/core";
+import { LibSQLMemoryAdapter } from "@voltagent/libsql";
 import { createPinoLogger } from "@voltagent/logger";
 import { honoServer } from "@voltagent/server-hono";
 import { tavilyExtractTool, tavilySearchTool } from "./tools";
@@ -8,6 +9,13 @@ import { tavilyExtractTool, tavilySearchTool } from "./tools";
 const logger = createPinoLogger({
   name: "tavily-search-agent",
   level: "info",
+});
+
+// Create Memory instance with vector support for semantic search and working memory
+const memory = new Memory({
+  storage: new LibSQLMemoryAdapter({
+    storageLimit: 100, // Keep last 100 messages per conversation
+  }),
 });
 
 // Create the search agent with Tavily tools
@@ -31,6 +39,7 @@ Example queries you can handle:
 - "Extract content from this URL: https://example.com/article"`,
   model: openai("gpt-4o-mini"),
   tools: [tavilySearchTool, tavilyExtractTool],
+  memory,
 });
 
 // Initialize the VoltAgent with the search agent and server
