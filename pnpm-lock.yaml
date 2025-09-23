@@ -127,8 +127,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -164,8 +164,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -195,8 +195,8 @@ importers:
         specifier: ^0.1.6
         version: 0.1.6(@voltagent/logger@packages+logger)(zod@3.25.76)
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
     devDependencies:
       '@types/node':
         specifier: ^24.2.1
@@ -226,8 +226,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.19(zod@3.25.76)
@@ -266,8 +266,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -303,8 +303,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -349,8 +349,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -389,8 +389,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -426,8 +426,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -463,8 +463,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -500,8 +500,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -537,8 +537,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -624,7 +624,7 @@ importers:
         version: 0.1.4
       '@voltagent/server-hono':
         specifier: ^1.0.0-next.0
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        version: link:../../../packages/server-hono
       composio-core:
         specifier: ^0.5.33
         version: 0.5.39(@ai-sdk/openai@2.0.12)(@cloudflare/workers-types@4.20250813.0)(@langchain/core@0.3.70)(@langchain/openai@0.6.7)(ai@5.0.19)(langchain@0.3.30)(openai@4.104.0)
@@ -666,8 +666,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -703,8 +703,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -740,8 +740,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -777,8 +777,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -812,7 +812,7 @@ importers:
         version: link:../../packages/logger
       '@voltagent/server-hono':
         specifier: ^1.0.5
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -857,8 +857,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -894,8 +894,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -928,8 +928,8 @@ importers:
         specifier: ^1.0.1
         version: link:../../packages/mcp-server
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.19(zod@3.25.76)
@@ -974,8 +974,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1038,8 +1038,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1078,8 +1078,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1130,8 +1130,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1179,8 +1179,8 @@ importers:
         specifier: ^1.0.7
         version: link:../../packages/postgres
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1219,8 +1219,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1259,8 +1259,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1293,8 +1293,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1330,8 +1330,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       zod:
         specifier: ^3.25.76
         version: 3.25.76
@@ -1364,8 +1364,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1401,8 +1401,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1438,8 +1438,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       '@voltagent/supabase':
         specifier: ^1.0.4
         version: link:../../packages/supabase
@@ -1478,8 +1478,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.19(zod@3.25.76)
@@ -1515,8 +1515,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1552,8 +1552,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1589,8 +1589,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1626,8 +1626,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1663,8 +1663,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1700,8 +1700,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.19(zod@3.25.76)
@@ -1756,7 +1756,7 @@ importers:
         version: link:../../../packages/logger
       '@voltagent/server-hono':
         specifier: ^1.0.4
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        version: link:../../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.19(zod@3.25.76)
@@ -1810,8 +1810,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       '@voltagent/voice':
         specifier: ^1.0.2
         version: link:../../packages/voice
@@ -1850,8 +1850,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       '@voltagent/voice':
         specifier: ^1.0.2
         version: link:../../packages/voice
@@ -1896,8 +1896,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       '@voltagent/voice':
         specifier: ^1.0.2
         version: link:../../packages/voice
@@ -1942,8 +1942,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -1979,8 +1979,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -2016,8 +2016,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -2053,8 +2053,8 @@ importers:
         specifier: ^1.0.2
         version: link:../../packages/logger
       '@voltagent/server-hono':
-        specifier: ^1.0.11
-        version: 1.0.12(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.12
+        version: link:../../packages/server-hono
       ai:
         specifier: ^5.0.12
         version: 5.0.12(zod@3.25.76)
@@ -2354,9 +2354,6 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.12.1
         version: 1.17.2
-      '@voltagent/core':
-        specifier: ^1.0.0
-        version: link:../core
     devDependencies:
       '@types/node':
         specifier: ^24.2.1
@@ -2642,8 +2639,8 @@ importers:
         specifier: ^1.0.1
         version: link:../mcp-server
       '@voltagent/server-core':
-        specifier: ^1.0.10
-        version: 1.0.11(@voltagent/core@packages+core)(zod@3.25.76)
+        specifier: ^1.0.11
+        version: link:../server-core
       fetch-to-node:
         specifier: ^2.1.0
         version: 2.1.0
@@ -12241,19 +12238,6 @@ packages:
       - xml2js
     dev: true
 
-  /@voltagent/a2a-server@1.0.1(@voltagent/core@packages+core):
-    resolution: {integrity: sha512-1Ek8GHJnUg4X0fZx/Z7ePA2NggG49/CIuWnBcPx94TuDn6/2cP0bJWwWuMF9nWWLyeYemjTi+1ZeFgcLG49QSg==}
-    peerDependencies:
-      '@voltagent/core': ^1.0.0
-    dependencies:
-      '@a2a-js/sdk': 0.2.5
-      '@voltagent/core': link:packages/core
-      '@voltagent/internal': 0.0.11
-      zod: 3.25.76
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /@voltagent/core@0.1.86(@voltagent/logger@packages+logger)(zod@3.25.76):
     resolution: {integrity: sha512-sQW3n9QcLlRwkJWuoKlIqXfqu24A03H+LsssSMwzQeEZlBBixMG7KnPaFCB7HzsZRNV/Fr1W8tNfl9cbexevpw==}
     peerDependencies:
@@ -12287,12 +12271,6 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@voltagent/internal@0.0.11:
-    resolution: {integrity: sha512-WI9oC0LFvDDxaIbeXB7KIFbx7v42KBf7zRd96wRNx7K+Tga8OlzI0kj/HAPiYL+zhCta/S+uR8+XZFkzF8WDug==}
-    dependencies:
-      type-fest: 4.41.0
-    dev: false
-
   /@voltagent/internal@0.0.9:
     resolution: {integrity: sha512-Kaa2jW60VsfYVotuXC81LmNOJ07Lf1yq36vMteNKKa5seIsKkJ75PvIbMp52eEZ/ky/oBXrs94UXrQNqXBJ80Q==}
     dev: false
@@ -12305,20 +12283,6 @@ packages:
       pino-pretty: 13.1.1
     dev: false
 
-  /@voltagent/mcp-server@1.0.1(@voltagent/core@packages+core)(zod@3.25.76):
-    resolution: {integrity: sha512-IG11nVoP2vxoAKZKNqZWxELyjkHeZBBMoZsNuQsNPozkMFhvGrOKY7Y6ZTFKS4QOHyyKheuDzPTrFDLsXOp+zQ==}
-    peerDependencies:
-      '@voltagent/core': ^1.0.0
-      zod: ^3.25.0 || ^4.0.0
-    dependencies:
-      '@modelcontextprotocol/sdk': 1.17.2
-      '@voltagent/core': link:packages/core
-      '@voltagent/internal': 0.0.11
-      zod: 3.25.76
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /@voltagent/sdk@0.1.6(@voltagent/logger@packages+logger)(zod@3.25.76):
     resolution: {integrity: sha512-ofyk36gaoF4unwEJIAKTWKjq9LaD1QUCrChGIPdChy8c81MsTPQdihNMT2GwIJeQMGCFAd30ybTBZ6ZvlI7oLQ==}
     dependencies:
@@ -12329,51 +12293,6 @@ packages:
       - supports-color
       - utf-8-validate
       - zod
-    dev: false
-
-  /@voltagent/server-core@1.0.11(@voltagent/core@packages+core)(zod@3.25.76):
-    resolution: {integrity: sha512-2qPgJMVx8M4hRkp9MjwIDLSAurPOH+AkNKgohVnQlNvkEBEjVpuECIZakFvJEkJaVLVd1gV7YZs6TvRkQ5AQLQ==}
-    peerDependencies:
-      '@voltagent/core': ^1.0.0
-      zod: ^3.25.0 || ^4.0.0
-    dependencies:
-      '@modelcontextprotocol/sdk': 1.17.2
-      '@voltagent/core': link:packages/core
-      '@voltagent/internal': 0.0.11
-      ai: 5.0.19(zod@3.25.76)
-      jsonwebtoken: 9.0.2
-      ws: 8.18.3
-      zod: 3.25.76
-      zod-from-json-schema: 0.5.0
-      zod-from-json-schema-v3: /zod-from-json-schema@0.0.5
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-    dev: false
-
-  /@voltagent/server-hono@1.0.12(@voltagent/core@packages+core)(zod@3.25.76):
-    resolution: {integrity: sha512-8u8egj3+9KUnLAm9oIGRPHwlTGkLPXUwweBVCryo43CrI5Vg49zKM9kKMWdd4ixlD7ftKjUQ/bAnbd5M7xLGFQ==}
-    peerDependencies:
-      '@voltagent/core': ^1.0.0
-      zod: ^3.25.0 || ^4.0.0
-    dependencies:
-      '@hono/node-server': 1.18.2(hono@4.9.1)
-      '@hono/swagger-ui': 0.5.2(hono@4.9.1)
-      '@hono/zod-openapi': 0.19.10(hono@4.9.1)(zod@3.25.76)
-      '@hono/zod-openapi-v4': /@hono/zod-openapi@1.1.0(hono@4.9.1)(zod@3.25.76)
-      '@voltagent/a2a-server': 1.0.1(@voltagent/core@packages+core)
-      '@voltagent/core': link:packages/core
-      '@voltagent/internal': 0.0.11
-      '@voltagent/mcp-server': 1.0.1(@voltagent/core@packages+core)(zod@3.25.76)
-      '@voltagent/server-core': 1.0.11(@voltagent/core@packages+core)(zod@3.25.76)
-      fetch-to-node: 2.1.0
-      hono: 4.9.1
-      zod: 3.25.76
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
     dev: false
 
   /@xsai/generate-speech@0.4.0-beta.1:
