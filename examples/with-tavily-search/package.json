@@ -1,6 +1,6 @@
 {
   "name": "voltagent-example-with-tavily-search",
-   "author": "",
+  "author": "",
   "dependencies": {
     "@ai-sdk/openai": "^2.0.2",
     "@voltagent/cli": "^0.1.10",
