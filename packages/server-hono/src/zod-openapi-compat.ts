@@ -57,8 +57,25 @@ const require =
 // duplicate module instances when mixing ESM/CJS loaders.
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const v3Module = require("@hono/zod-openapi");
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const v4Module = require("@hono/zod-openapi-v4");
+
+let v4Module: CompatibleModule | undefined;
+if (isZodV4) {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    v4Module = require("@hono/zod-openapi-v4");
+  } catch (error) {
+    const notFound =
+      error instanceof Error &&
+      "code" in error &&
+      (error as { code?: string }).code === "MODULE_NOT_FOUND";
+    if (!notFound) {
+      throw error;
+    }
+    throw new Error(
+      "@hono/zod-openapi-v4 is required when using Zod v4. Install it alongside @hono/zod-openapi or downgrade to Zod v3.",
+    );
+  }
+}
 
 type OpenAPIHonoCtor = typeof v3Module.OpenAPIHono;
 type CreateRouteFn = typeof v3Module.createRoute;
