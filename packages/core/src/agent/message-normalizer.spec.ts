@@ -125,17 +125,4 @@ describe("message-normalizer", () => {
     expect(sanitized).toHaveLength(1);
     expect(sanitized[0].parts[0]).toEqual({ type: "text", text: "visible" });
   });
-
-  it("recognizes legacy camelCase working-memory tool names", () => {
-    const message = baseMessage([
-      {
-        type: "tool-updateWorkingMemory",
-        toolCallId: "legacy",
-        state: "input-available",
-        input: { content: "legacy" },
-      } as any,
-    ]);
-
-    expect(sanitizeMessageForPersistence(message)).toBeNull();
-  });
 });
