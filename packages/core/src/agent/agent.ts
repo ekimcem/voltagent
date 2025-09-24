@@ -2398,10 +2398,100 @@ export class Agent {
         buffer.addModelMessages(responseMessages, "response");
       }
 
+      const syntheticToolMessages = this.buildSyntheticToolMessages(event, responseMessages);
+      if (syntheticToolMessages.length > 0) {
+        buffer.addModelMessages(syntheticToolMessages, "response");
+      }
+
       // Call hooks
       const hooks = this.getMergedHooks(options);
       await hooks.onStepFinish?.({ agent: this, step: event, context: oc });
     };
+  }
+
+  private buildSyntheticToolMessages(
+    step: StepResult<ToolSet>,
+    responseMessages?: ModelMessage[],
+  ): ModelMessage[] {
+    if (!Array.isArray(step.content) || step.content.length === 0) {
+      return [];
+    }
+
+    const existingToolResultIds = this.collectToolResultIds(responseMessages);
+    const syntheticMessages: ModelMessage[] = [];
+
+    for (const part of step.content as Array<any>) {
+      if (!part || typeof part !== "object") {
+        continue;
+      }
+
+      if (part.type !== "tool-result") {
+        continue;
+      }
+
+      const toolCallId = typeof part.toolCallId === "string" ? part.toolCallId : undefined;
+      if (!toolCallId || existingToolResultIds.has(toolCallId)) {
+        continue;
+      }
+
+      const role = part.providerExecuted ? "assistant" : "tool";
+
+      const contentPart: Record<string, unknown> = {
+        type: "tool-result",
+        toolCallId,
+        toolName: part.toolName,
+        output: part.output,
+      };
+
+      if ("input" in part) {
+        contentPart.input = part.input;
+      }
+      if ("providerExecuted" in part) {
+        contentPart.providerExecuted = part.providerExecuted;
+      }
+      if ("dynamic" in part) {
+        contentPart.dynamic = part.dynamic;
+      }
+      if ("preliminary" in part) {
+        contentPart.preliminary = part.preliminary;
+      }
+
+      syntheticMessages.push({
+        role,
+        content: [contentPart],
+      } as unknown as ModelMessage);
+
+      existingToolResultIds.add(toolCallId);
+    }
+
+    return syntheticMessages;
+  }
+
+  private collectToolResultIds(messages?: ModelMessage[]): Set<string> {
+    const ids = new Set<string>();
+    if (!messages) {
+      return ids;
+    }
+
+    for (const message of messages) {
+      if (!message || typeof message !== "object") {
+        continue;
+      }
+
+      const content = Array.isArray(message.content) ? message.content : [];
+      for (const part of content as Array<any>) {
+        if (
+          part &&
+          typeof part === "object" &&
+          part.type === "tool-result" &&
+          typeof part.toolCallId === "string"
+        ) {
+          ids.add(part.toolCallId);
+        }
+      }
+    }
+
+    return ids;
   }
 
   /**

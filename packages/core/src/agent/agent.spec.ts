@@ -3,6 +3,7 @@
  * Using AI SDK's native test helpers with minimal mocking
  */
 
+import type { ModelMessage } from "@ai-sdk/provider-utils";
 import * as ai from "ai";
 import type { UIMessage } from "ai";
 import { MockLanguageModelV2 } from "ai/test";
@@ -12,6 +13,7 @@ import { Memory } from "../memory";
 import { InMemoryStorageAdapter } from "../memory/adapters/storage/in-memory";
 import { Tool } from "../tool";
 import { Agent } from "./agent";
+import { ConversationBuffer } from "./conversation-buffer";
 
 // Mock the AI SDK functions
 vi.mock("ai", () => ({
@@ -245,6 +247,100 @@ describe("Agent", () => {
       expect(result.context).toBeDefined();
       expect(result.context.get("userId")).toBe("user123");
       expect(result.context.get("sessionId")).toBe("session456");
+    });
+  });
+
+  describe("Tool result handling", () => {
+    it("synthesizes missing tool-result messages for executed tools", () => {
+      const agent = new Agent({
+        name: "TestAgent",
+        instructions: "You are a helpful assistant",
+        model: mockModel as any,
+      });
+
+      const step = {
+        content: [
+          {
+            type: "tool-result",
+            toolCallId: "call-1",
+            toolName: "search",
+            input: { query: "weather" },
+            output: { temperature: "21°C" },
+            providerExecuted: false,
+          },
+        ],
+      } as any;
+
+      const synthetic = (agent as any).buildSyntheticToolMessages(step, []);
+
+      expect(synthetic).toHaveLength(1);
+      expect(synthetic[0].role).toBe("tool");
+
+      const buffer = new ConversationBuffer();
+      const assistantToolCall: ModelMessage = {
+        role: "assistant",
+        content: [
+          {
+            type: "tool-call",
+            toolCallId: "call-1",
+            toolName: "search",
+            input: { query: "weather" },
+            providerExecuted: false,
+          },
+        ],
+      };
+      buffer.addModelMessages([assistantToolCall], "response");
+      buffer.addModelMessages(synthetic, "response");
+
+      const messages = buffer.getAllMessages();
+      expect(messages).toHaveLength(1);
+      const toolPart = messages[0].parts[0] as any;
+      expect(toolPart).toMatchObject({
+        type: "tool-search",
+        toolCallId: "call-1",
+        state: "output-available",
+        providerExecuted: false,
+        output: { temperature: "21°C" },
+      });
+    });
+
+    it("does not duplicate tool results that are already present", () => {
+      const agent = new Agent({
+        name: "TestAgent",
+        instructions: "You are a helpful assistant",
+        model: mockModel as any,
+      });
+
+      const step = {
+        content: [
+          {
+            type: "tool-result",
+            toolCallId: "call-1",
+            toolName: "search",
+            input: { query: "weather" },
+            output: { temperature: "21°C" },
+            providerExecuted: false,
+          },
+        ],
+      } as any;
+
+      const responseMessages: ModelMessage[] = [
+        {
+          role: "tool",
+          content: [
+            {
+              type: "tool-result",
+              toolCallId: "call-1",
+              toolName: "search",
+              output: { temperature: "21°C" },
+            },
+          ],
+        },
+      ];
+
+      const synthetic = (agent as any).buildSyntheticToolMessages(step, responseMessages);
+
+      expect(synthetic).toHaveLength(0);
     });
   });
 
