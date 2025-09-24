@@ -1,5 +1,10 @@
 import * as crypto from "node:crypto";
-import type { ModelMessage, ProviderOptions, SystemModelMessage } from "@ai-sdk/provider-utils";
+import type {
+  AssistantModelMessage,
+  ModelMessage,
+  ProviderOptions,
+  SystemModelMessage,
+} from "@ai-sdk/provider-utils";
 import type { Span } from "@opentelemetry/api";
 import { SpanKind, SpanStatusCode } from "@opentelemetry/api";
 import type { Logger } from "@voltagent/internal";
@@ -1257,6 +1262,7 @@ export class Agent {
 
     // Convert UIMessages to ModelMessages for the LLM
     const messages = convertToModelMessages(uiMessages);
+    this.restoreReasoningMetadata(uiMessages, messages);
 
     // Calculate maxSteps (use provided option or calculate based on subagents)
     const maxSteps = options?.maxSteps ?? this.calculateMaxSteps();
@@ -2492,6 +2498,53 @@ export class Agent {
     }
 
     return ids;
+  }
+
+  private restoreReasoningMetadata(uiMessages: UIMessage[], modelMessages: ModelMessage[]): void {
+    let modelIndex = 0;
+
+    for (const uiMessage of uiMessages) {
+      if (uiMessage.role !== "assistant") {
+        continue;
+      }
+
+      while (modelIndex < modelMessages.length && modelMessages[modelIndex].role !== "assistant") {
+        modelIndex++;
+      }
+
+      if (modelIndex >= modelMessages.length) {
+        break;
+      }
+
+      const modelMessage = modelMessages[modelIndex] as AssistantModelMessage;
+      const modelContent = Array.isArray(modelMessage.content) ? modelMessage.content : [];
+
+      const uiReasoningParts = (uiMessage.parts as any[]).filter(
+        (part) => part?.type === "reasoning",
+      );
+      const modelReasoningParts = modelContent.filter((part) => part?.type === "reasoning");
+
+      if (uiReasoningParts.length === 0 || modelReasoningParts.length === 0) {
+        modelIndex++;
+        continue;
+      }
+
+      const count = Math.min(uiReasoningParts.length, modelReasoningParts.length);
+      for (let i = 0; i < count; i++) {
+        const uiPart = uiReasoningParts[i];
+        const modelPart = modelReasoningParts[i] as any;
+
+        if (uiPart?.reasoningId && typeof uiPart.reasoningId === "string") {
+          modelPart.id = uiPart.reasoningId;
+        }
+
+        if (uiPart?.reasoningConfidence !== undefined) {
+          modelPart.confidence = uiPart.reasoningConfidence;
+        }
+      }
+
+      modelIndex++;
+    }
   }
 
   /**

@@ -3,7 +3,7 @@
  * Using AI SDK's native test helpers with minimal mocking
  */
 
-import type { ModelMessage } from "@ai-sdk/provider-utils";
+import type { AssistantModelMessage, ModelMessage } from "@ai-sdk/provider-utils";
 import * as ai from "ai";
 import type { UIMessage } from "ai";
 import { MockLanguageModelV2 } from "ai/test";
@@ -341,6 +341,51 @@ describe("Agent", () => {
       const synthetic = (agent as any).buildSyntheticToolMessages(step, responseMessages);
 
       expect(synthetic).toHaveLength(0);
+    });
+  });
+
+  describe("Reasoning metadata handling", () => {
+    it("restores reasoning identifiers onto model messages", () => {
+      const agent = new Agent({
+        name: "TestAgent",
+        instructions: "You are a helpful assistant",
+        model: mockModel as any,
+      });
+
+      const uiMessages: UIMessage[] = [
+        {
+          id: "assistant-1",
+          role: "assistant",
+          parts: [
+            {
+              type: "reasoning",
+              text: "thinking",
+              reasoningId: "rs_123",
+              reasoningConfidence: 0.9,
+            },
+            {
+              type: "text",
+              text: "result",
+            },
+          ],
+        },
+      ] as any;
+
+      const modelMessages: ModelMessage[] = [
+        {
+          role: "assistant",
+          content: [
+            { type: "reasoning", text: "thinking" },
+            { type: "text", text: "result" },
+          ],
+        } as AssistantModelMessage,
+      ];
+
+      (agent as any).restoreReasoningMetadata(uiMessages, modelMessages);
+
+      const reasoningPart = (modelMessages[0].content as any[])[0];
+      expect(reasoningPart.id).toBe("rs_123");
+      expect(reasoningPart.confidence).toBe(0.9);
     });
   });
 
