@@ -1,10 +1,5 @@
 import * as crypto from "node:crypto";
-import type {
-  AssistantModelMessage,
-  ModelMessage,
-  ProviderOptions,
-  SystemModelMessage,
-} from "@ai-sdk/provider-utils";
+import type { ModelMessage, ProviderOptions, SystemModelMessage } from "@ai-sdk/provider-utils";
 import type { Span } from "@opentelemetry/api";
 import { SpanKind, SpanStatusCode } from "@opentelemetry/api";
 import type { Logger } from "@voltagent/internal";
@@ -37,7 +32,7 @@ import {
 import { z } from "zod";
 import { LogEvents, LoggerProxy } from "../logger";
 import { ActionType, buildAgentLogMessage } from "../logger/message-builder";
-import type { Memory } from "../memory";
+import type { Memory, MemoryUpdateMode } from "../memory";
 import { MemoryManager } from "../memory/manager/memory-manager";
 import { VoltAgentObservability } from "../observability";
 import { AgentRegistry } from "../registries/agent-registry";
@@ -1262,7 +1257,6 @@ export class Agent {
 
     // Convert UIMessages to ModelMessages for the LLM
     const messages = convertToModelMessages(uiMessages);
-    this.restoreReasoningMetadata(uiMessages, messages);
 
     // Calculate maxSteps (use provided option or calculate based on subagents)
     const maxSteps = options?.maxSteps ?? this.calculateMaxSteps();
@@ -1832,7 +1826,36 @@ export class Agent {
         if (workingMemoryInstructions) {
           workingMemoryContext = `\n\n${workingMemoryInstructions}`;
         }
+
+        // Add working memory attributes to span for observability
+        if (oc.traceContext) {
+          const rootSpan = oc.traceContext.getRootSpan();
+
+          // Get the raw working memory content
+          const workingMemoryContent = await memory.getWorkingMemory({
+            conversationId: options.conversationId,
+            userId: options.userId,
+          });
+
+          if (workingMemoryContent) {
+            rootSpan.setAttribute("agent.workingMemory.content", workingMemoryContent);
+            rootSpan.setAttribute("agent.workingMemory.enabled", true);
+
+            // Detect format
+            const format = memory.getWorkingMemoryFormat ? memory.getWorkingMemoryFormat() : null;
+            rootSpan.setAttribute("agent.workingMemory.format", format || "text");
+
+            // Add timestamp
+            rootSpan.setAttribute("agent.workingMemory.lastUpdated", new Date().toISOString());
+          } else {
+            rootSpan.setAttribute("agent.workingMemory.enabled", true);
+          }
+        }
       }
+    } else if (oc.traceContext) {
+      // Working memory not supported/configured
+      const rootSpan = oc.traceContext.getRootSpan();
+      rootSpan.setAttribute("agent.workingMemory.enabled", false);
     }
 
     // Handle different instruction types
@@ -2404,147 +2427,10 @@ export class Agent {
         buffer.addModelMessages(responseMessages, "response");
       }
 
-      const syntheticToolMessages = this.buildSyntheticToolMessages(event, responseMessages);
-      if (syntheticToolMessages.length > 0) {
-        buffer.addModelMessages(syntheticToolMessages, "response");
-      }
-
       // Call hooks
       const hooks = this.getMergedHooks(options);
       await hooks.onStepFinish?.({ agent: this, step: event, context: oc });
     };
-  }
-
-  private buildSyntheticToolMessages(
-    step: StepResult<ToolSet>,
-    responseMessages?: ModelMessage[],
-  ): ModelMessage[] {
-    if (!Array.isArray(step.content) || step.content.length === 0) {
-      return [];
-    }
-
-    const existingToolResultIds = this.collectToolResultIds(responseMessages);
-    const syntheticMessages: ModelMessage[] = [];
-
-    for (const part of step.content as Array<any>) {
-      if (!part || typeof part !== "object") {
-        continue;
-      }
-
-      if (part.type !== "tool-result") {
-        continue;
-      }
-
-      const toolCallId = typeof part.toolCallId === "string" ? part.toolCallId : undefined;
-      if (!toolCallId || existingToolResultIds.has(toolCallId)) {
-        continue;
-      }
-
-      const role = part.providerExecuted ? "assistant" : "tool";
-
-      const contentPart: Record<string, unknown> = {
-        type: "tool-result",
-        toolCallId,
-        toolName: part.toolName,
-        output: part.output,
-      };
-
-      if ("input" in part) {
-        contentPart.input = part.input;
-      }
-      if ("providerExecuted" in part) {
-        contentPart.providerExecuted = part.providerExecuted;
-      }
-      if ("dynamic" in part) {
-        contentPart.dynamic = part.dynamic;
-      }
-      if ("preliminary" in part) {
-        contentPart.preliminary = part.preliminary;
-      }
-
-      syntheticMessages.push({
-        role,
-        content: [contentPart],
-      } as unknown as ModelMessage);
-
-      existingToolResultIds.add(toolCallId);
-    }
-
-    return syntheticMessages;
-  }
-
-  private collectToolResultIds(messages?: ModelMessage[]): Set<string> {
-    const ids = new Set<string>();
-    if (!messages) {
-      return ids;
-    }
-
-    for (const message of messages) {
-      if (!message || typeof message !== "object") {
-        continue;
-      }
-
-      const content = Array.isArray(message.content) ? message.content : [];
-      for (const part of content as Array<any>) {
-        if (
-          part &&
-          typeof part === "object" &&
-          part.type === "tool-result" &&
-          typeof part.toolCallId === "string"
-        ) {
-          ids.add(part.toolCallId);
-        }
-      }
-    }
-
-    return ids;
-  }
-
-  private restoreReasoningMetadata(uiMessages: UIMessage[], modelMessages: ModelMessage[]): void {
-    let modelIndex = 0;
-
-    for (const uiMessage of uiMessages) {
-      if (uiMessage.role !== "assistant") {
-        continue;
-      }
-
-      while (modelIndex < modelMessages.length && modelMessages[modelIndex].role !== "assistant") {
-        modelIndex++;
-      }
-
-      if (modelIndex >= modelMessages.length) {
-        break;
-      }
-
-      const modelMessage = modelMessages[modelIndex] as AssistantModelMessage;
-      const modelContent = Array.isArray(modelMessage.content) ? modelMessage.content : [];
-
-      const uiReasoningParts = (uiMessage.parts as any[]).filter(
-        (part) => part?.type === "reasoning",
-      );
-      const modelReasoningParts = modelContent.filter((part) => part?.type === "reasoning");
-
-      if (uiReasoningParts.length === 0 || modelReasoningParts.length === 0) {
-        modelIndex++;
-        continue;
-      }
-
-      const count = Math.min(uiReasoningParts.length, modelReasoningParts.length);
-      for (let i = 0; i < count; i++) {
-        const uiPart = uiReasoningParts[i];
-        const modelPart = modelReasoningParts[i] as any;
-
-        if (uiPart?.reasoningId && typeof uiPart.reasoningId === "string") {
-          modelPart.id = uiPart.reasoningId;
-        }
-
-        if (uiPart?.reasoningConfidence !== undefined) {
-          modelPart.confidence = uiPart.reasoningConfidence;
-        }
-      }
-
-      modelIndex++;
-    }
   }
 
   /**
@@ -2973,22 +2859,49 @@ export class Agent {
     const schema = memory.getWorkingMemorySchema();
     const template = memory.getWorkingMemoryTemplate();
 
+    // Build parameters based on schema
+    const baseParams = schema
+      ? { content: schema }
+      : { content: z.string().describe("The content to store in working memory") };
+
+    const modeParam = {
+      mode: z
+        .enum(["replace", "append"])
+        .default("append")
+        .describe(
+          "How to update: 'append' (default - safely merge with existing) or 'replace' (complete overwrite - DELETES other fields!)",
+        ),
+    };
+
     tools.push(
       createTool({
         name: "update_working_memory",
         description: template
-          ? `Update the working memory. Template: ${template}`
-          : "Update the working memory with important context that should be remembered",
-        parameters: schema
-          ? z.object({ content: schema })
-          : z.object({ content: z.string().describe("The content to store in working memory") }),
-        execute: async ({ content }) => {
+          ? `Update working memory. Default mode is 'append' which safely merges new data. Only use 'replace' if you want to COMPLETELY OVERWRITE all data. Current data is in <current_context>. Template: ${template}`
+          : `Update working memory with important context. Default mode is 'append' which safely merges new data. Only use 'replace' if you want to COMPLETELY OVERWRITE all data. Current data is in <current_context>.`,
+        parameters: z.object({ ...baseParams, ...modeParam }),
+        execute: async ({ content, mode }, oc) => {
           await memory.updateWorkingMemory({
             conversationId: options?.conversationId,
             userId: options?.userId,
             content,
+            options: {
+              mode: mode as MemoryUpdateMode | undefined,
+            },
           });
-          return "Working memory updated successfully.";
+
+          // Update root span with final content
+          if (oc?.traceContext) {
+            const finalContent = await memory.getWorkingMemory({
+              conversationId: options?.conversationId,
+              userId: options?.userId,
+            });
+            const rootSpan = oc.traceContext.getRootSpan();
+            rootSpan.setAttribute("agent.workingMemory.finalContent", finalContent || "");
+            rootSpan.setAttribute("agent.workingMemory.lastUpdateTime", new Date().toISOString());
+          }
+
+          return `Working memory ${mode === "replace" ? "replaced" : "updated (appended)"} successfully.`;
         },
       }),
     );
@@ -2999,11 +2912,19 @@ export class Agent {
         name: "clear_working_memory",
         description: "Clear the working memory content",
         parameters: z.object({}),
-        execute: async () => {
+        execute: async (_, oc) => {
           await memory.clearWorkingMemory({
             conversationId: options?.conversationId,
             userId: options?.userId,
           });
+
+          // Update root span to indicate cleared state
+          if (oc?.traceContext) {
+            const rootSpan = oc.traceContext.getRootSpan();
+            rootSpan.setAttribute("agent.workingMemory.finalContent", "");
+            rootSpan.setAttribute("agent.workingMemory.lastUpdateTime", new Date().toISOString());
+          }
+
           return "Working memory cleared.";
         },
       }),

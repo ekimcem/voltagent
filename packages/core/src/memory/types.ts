@@ -130,6 +130,19 @@ export interface WorkflowStateEntry {
 export type WorkingMemoryScope = "conversation" | "user";
 
 /**
+ * Simple memory update modes
+ */
+export type MemoryUpdateMode = "replace" | "append";
+
+/**
+ * Options for updating working memory (simplified)
+ */
+export type WorkingMemoryUpdateOptions = {
+  /** How to update the memory (default: "replace") */
+  mode?: MemoryUpdateMode;
+};
+
+/**
  * Working memory configuration
  * Auto-detects format: schema → JSON, template → markdown
  */
