@@ -350,7 +350,11 @@ export class Agent {
     return await oc.traceContext.withSpan(rootSpan, async () => {
       const buffer = this.getConversationBuffer(oc);
       const persistQueue = this.getMemoryPersistQueue(oc);
-      const { messages, model, tools, maxSteps } = await this.prepareExecution(input, oc, options);
+      const { messages, uiMessages, model, tools, maxSteps } = await this.prepareExecution(
+        input,
+        oc,
+        options,
+      );
 
       const modelName = this.getModelName();
       const contextLimit = options?.contextLimit;
@@ -372,6 +376,7 @@ export class Agent {
 
       // Add messages (serialize to JSON string)
       rootSpan.setAttribute("agent.messages", safeStringify(messages));
+      rootSpan.setAttribute("agent.messages.ui", safeStringify(uiMessages));
 
       // Add agent state snapshot for remote observability
       const agentState = this.getFullState();
@@ -525,7 +530,11 @@ export class Agent {
 
       // No need to initialize stream collection anymore - we'll use UIMessageStreamWriter
 
-      const { messages, model, tools, maxSteps } = await this.prepareExecution(input, oc, options);
+      const { messages, uiMessages, model, tools, maxSteps } = await this.prepareExecution(
+        input,
+        oc,
+        options,
+      );
 
       const modelName = this.getModelName();
       const contextLimit = options?.contextLimit;
@@ -551,6 +560,7 @@ export class Agent {
 
         // Add messages (serialize to JSON string)
         rootSpan.setAttribute("agent.messages", safeStringify(messages));
+        rootSpan.setAttribute("agent.messages.ui", safeStringify(uiMessages));
 
         // Add agent state snapshot for remote observability
         const agentState = this.getFullState();
@@ -831,7 +841,7 @@ export class Agent {
     // Wrap entire execution in root span for trace context
     const rootSpan = oc.traceContext.getRootSpan();
     return await oc.traceContext.withSpan(rootSpan, async () => {
-      const { messages, model } = await this.prepareExecution(input, oc, options);
+      const { messages, uiMessages, model } = await this.prepareExecution(input, oc, options);
 
       const modelName = this.getModelName();
       const schemaName = schema.description || "unknown";
@@ -853,6 +863,7 @@ export class Agent {
 
       // Add messages (serialize to JSON string)
       rootSpan.setAttribute("agent.messages", safeStringify(messages));
+      rootSpan.setAttribute("agent.messages.ui", safeStringify(uiMessages));
 
       // Add agent state snapshot for remote observability
       const agentState = this.getFullState();
@@ -1011,7 +1022,7 @@ export class Agent {
     return await oc.traceContext.withSpan(rootSpan, async () => {
       const methodLogger = oc.logger; // Extract logger with executionId
 
-      const { messages, model } = await this.prepareExecution(input, oc, options);
+      const { messages, uiMessages, model } = await this.prepareExecution(input, oc, options);
 
       const modelName = this.getModelName();
       const schemaName = schema.description || "unknown";
@@ -1033,6 +1044,7 @@ export class Agent {
 
       // Add messages (serialize to JSON string)
       rootSpan.setAttribute("agent.messages", safeStringify(messages));
+      rootSpan.setAttribute("agent.messages.ui", safeStringify(uiMessages));
 
       // Add agent state snapshot for remote observability
       const agentState = this.getFullState();
@@ -1244,6 +1256,7 @@ export class Agent {
     options?: BaseGenerationOptions,
   ): Promise<{
     messages: BaseMessage[];
+    uiMessages: UIMessage[];
     model: LanguageModel;
     tools: Record<string, any>;
     maxSteps: number;
@@ -1257,8 +1270,8 @@ export class Agent {
     const uiMessages = await this.prepareMessages(input, oc, options, buffer);
 
     // Convert UIMessages to ModelMessages for the LLM
-    const messagesForModel = sanitizeMessagesForModel(uiMessages);
-    const messages = convertToModelMessages(messagesForModel);
+    const sanitizedUIMessages = sanitizeMessagesForModel(uiMessages);
+    const messages = convertToModelMessages(sanitizedUIMessages);
 
     // Calculate maxSteps (use provided option or calculate based on subagents)
     const maxSteps = options?.maxSteps ?? this.calculateMaxSteps();
@@ -1271,7 +1284,13 @@ export class Agent {
     // Prepare tools with execution context
     const tools = await this.prepareTools(mergedTools, oc, maxSteps, options);
 
-    return { messages, model, tools, maxSteps };
+    return {
+      messages,
+      uiMessages: sanitizedUIMessages,
+      model,
+      tools,
+      maxSteps,
+    };
   }
 
   /**
@@ -1679,10 +1698,12 @@ export class Agent {
             return result.messages;
           });
 
+          const retrievedMessagesCount = Array.isArray(memoryResult) ? memoryResult.length : 0;
+
           traceContext.endChildSpan(memoryReadSpan, "completed", {
             output: memoryResult,
             attributes: {
-              "memory.message_count": Array.isArray(memoryResult) ? memoryResult.length : 0,
+              "memory.message_count": retrievedMessagesCount,
             },
           });
 
