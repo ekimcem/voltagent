@@ -92,7 +92,15 @@ const workflow = createWorkflowChain({
     {
       schema: z.object({ sentiment: z.string().describe("e.g., positive, neutral, negative") }),
     }
-  );
+  )
+  .andThen({
+    id: "combine-results",
+    execute: async ({ data, getStepData }) => {
+      const greeting = getStepData("create-greeting")?.output.greeting || "";
+      const sentiment = data.sentiment;
+      return { greeting, sentiment };
+    },
+  });
 
 // Run the enhanced workflow
 new VoltAgent({ workflows: { workflow } });
@@ -142,10 +150,18 @@ const workflow = createWorkflowChain({
       schema: z.object({ sentiment: z.string().describe("e.g., positive, neutral, negative") }),
     }
   )
+  .andThen({
+    id: "combine-results",
+    execute: async ({ data, getStepData }) => {
+      const greeting = getStepData("create-greeting")?.output.greeting || "";
+      const sentiment = data.sentiment;
+      return { greeting, sentiment };
+    },
+  })
   // Add a conditional step
   .andWhen({
     id: "check-name-length",
-    condition: ({ data }) => data.name.length > 10,
+    condition: ({ data }) => data.greeting.length > 15,
     step: andThen({
       id: "set-long-name-flag",
       execute: async ({ data }) => ({ ...data, isLongName: true }),
