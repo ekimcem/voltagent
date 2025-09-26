@@ -161,7 +161,7 @@ const workflow = createWorkflowChain({
   // Add a conditional step
   .andWhen({
     id: "check-name-length",
-    condition: ({ data }) => data.greeting.length > 15,
+    condition: async ({ data }) => data.greeting.length > 15,
     step: andThen({
       id: "set-long-name-flag",
       execute: async ({ data }) => ({ ...data, isLongName: true }),
