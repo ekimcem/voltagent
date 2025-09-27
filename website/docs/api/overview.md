@@ -94,7 +94,7 @@ Get the raw OpenAPI 3.1 spec at [`http://localhost:3141/doc`](http://localhost:3
 ### System
 
 - `GET /updates` - Check available updates
-- `POST /updates/install` - Install updates (all or a specific package)
+- `POST /updates` - Install updates (all or a specific package)
 
 ## Documentation Sections
 

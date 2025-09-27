@@ -1,6 +1,7 @@
 import type { ServerProviderDeps } from "@voltagent/core";
 import type { Logger } from "@voltagent/internal";
 import {
+  UPDATE_ROUTES,
   handleCancelWorkflow,
   handleChatStream,
   handleCheckUpdates,
@@ -334,7 +335,7 @@ export function registerUpdateRoutes(
   logger: Logger,
 ) {
   // GET /updates - Check for updates
-  app.get("/updates", async (c) => {
+  app.get(UPDATE_ROUTES.checkUpdates.path, async (c) => {
     const response = await handleCheckUpdates(deps, logger);
     if (!response.success) {
       return c.json(response, 500);
@@ -342,10 +343,20 @@ export function registerUpdateRoutes(
     return c.json(response, 200);
   });
 
-  // POST /updates/install - Install updates
-  app.post("/updates/install", async (c) => {
-    const body = await c.req.json();
-    const response = await handleInstallUpdates(body.packageName, deps, logger);
+  // POST /updates - Install updates
+  app.post(UPDATE_ROUTES.installUpdates.path, async (c) => {
+    let packageName: string | undefined;
+
+    try {
+      const body = (await c.req.json()) as { packageName?: unknown };
+      if (typeof body?.packageName === "string") {
+        packageName = body.packageName;
+      }
+    } catch (error) {
+      logger.warn("Failed to parse update install request body", { error });
+    }
+
+    const response = await handleInstallUpdates(packageName, deps, logger);
     if (!response.success) {
       return c.json(response, 500);
     }

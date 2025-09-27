@@ -100,10 +100,10 @@ Default port is 3141, but may vary based on configuration.
 
 ## System
 
-| Method | Path               | Description             | Auth |
-| ------ | ------------------ | ----------------------- | ---- |
-| GET    | `/updates`         | Check available updates | No   |
-| POST   | `/updates/install` | Install updates         | No   |
+| Method | Path       | Description             | Auth |
+| ------ | ---------- | ----------------------- | ---- |
+| GET    | `/updates` | Check available updates | No   |
+| POST   | `/updates` | Install updates         | No   |
 
 ## WebSockets
 

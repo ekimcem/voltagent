@@ -491,7 +491,7 @@ export const UPDATE_ROUTES = {
   },
   installUpdates: {
     method: "post" as const,
-    path: "/updates/install",
+    path: "/updates",
     summary: "Install updates",
     description:
       "Install available updates for VoltAgent packages. Can install a single package or all packages.",

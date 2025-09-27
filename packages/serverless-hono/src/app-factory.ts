@@ -8,6 +8,7 @@ import {
   registerAgentRoutes,
   registerLogRoutes,
   registerObservabilityRoutes,
+  registerUpdateRoutes,
   registerWorkflowRoutes,
 } from "./routes";
 import type { ServerlessConfig } from "./types";
@@ -60,6 +61,7 @@ export async function createServerlessApp(deps: ServerProviderDeps, config?: Ser
   registerAgentRoutes(app, deps, logger);
   registerWorkflowRoutes(app, deps, logger);
   registerLogRoutes(app, deps, logger);
+  registerUpdateRoutes(app, deps, logger);
   registerObservabilityRoutes(app, deps, logger);
   registerA2ARoutes(app, deps, logger);
 

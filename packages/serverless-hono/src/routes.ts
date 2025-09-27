@@ -24,10 +24,12 @@ import {
   AGENT_ROUTES,
   OBSERVABILITY_MEMORY_ROUTES,
   OBSERVABILITY_ROUTES,
+  UPDATE_ROUTES,
   WORKFLOW_ROUTES,
   executeA2ARequest,
   getConversationMessagesHandler,
   handleChatStream,
+  handleCheckUpdates,
   handleExecuteWorkflow,
   handleGenerateObject,
   handleGenerateText,
@@ -38,6 +40,7 @@ import {
   handleGetWorkflow,
   handleGetWorkflowState,
   handleGetWorkflows,
+  handleInstallUpdates,
   handleResumeWorkflow,
   handleStreamObject,
   handleStreamText,
@@ -284,6 +287,19 @@ export function registerLogRoutes(app: Hono, deps: ServerProviderDeps, logger: L
 
     const mapped = mapLogResponse(response);
     return c.json(mapped, 200);
+  });
+}
+
+export function registerUpdateRoutes(app: Hono, deps: ServerProviderDeps, logger: Logger) {
+  app.get(UPDATE_ROUTES.checkUpdates.path, async (c) => {
+    const response = await handleCheckUpdates(deps, logger);
+    return c.json(response, response.success ? 200 : 500);
+  });
+
+  app.post(UPDATE_ROUTES.installUpdates.path, async (c) => {
+    const body = (await readJsonBody<{ packageName?: string }>(c, logger)) ?? {};
+    const response = await handleInstallUpdates(body.packageName, deps, logger);
+    return c.json(response, response.success ? 200 : 500);
   });
 }
 
