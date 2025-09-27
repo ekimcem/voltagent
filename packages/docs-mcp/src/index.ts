@@ -10,7 +10,7 @@ import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprot
 const mcpTools = voltAgentDocsTools.map((tool) => ({
   name: tool.name,
   description: tool.description,
-  inputSchema: z.toJSONSchema(tool.parameters, { target: "draft-7" }),
+  inputSchema: z.toJSONSchema(tool.parameters),
 }));
 
 console.error("=== VoltAgent Docs MCP Server Starting ===");
