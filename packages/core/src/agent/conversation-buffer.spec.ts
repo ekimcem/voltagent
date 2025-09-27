@@ -59,6 +59,7 @@ describe("ConversationBuffer", () => {
       type: "tool-getWeather",
       toolCallId: "call-1",
       state: "output-available",
+      input: { location: "Berlin" },
       output: { condition: "sunny" },
       providerExecuted: false,
     });

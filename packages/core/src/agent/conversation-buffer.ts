@@ -366,7 +366,17 @@ export class ConversationBuffer {
 
       if (existingPart) {
         existingPart.state = (part as any).state ?? existingPart.state;
-        if ("input" in part) existingPart.input = (part as any).input;
+        if ("input" in part) {
+          const incomingInput = (part as any).input;
+          const shouldUpdateInput =
+            incomingInput !== undefined &&
+            incomingInput !== null &&
+            (typeof incomingInput !== "object" || Object.keys(incomingInput).length > 0);
+
+          if (shouldUpdateInput) {
+            existingPart.input = incomingInput;
+          }
+        }
         if ("output" in part) existingPart.output = (part as any).output;
         if ((part as any).providerExecuted !== undefined) {
           existingPart.providerExecuted = (part as any).providerExecuted;
