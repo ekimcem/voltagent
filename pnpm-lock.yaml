@@ -742,7 +742,7 @@ importers:
         specifier: ^1.1.23
         version: link:../../packages/core
       '@voltagent/libsql':
-        specifier: ^1.0.7
+        specifier: ^1.0.6
         version: link:../../packages/libsql
       '@voltagent/logger':
         specifier: ^1.0.2
@@ -2687,6 +2687,9 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.12.1
         version: 1.17.2
+      '@voltagent/core':
+        specifier: ^1.1.23
+        version: link:../core
       '@voltagent/internal':
         specifier: ^0.0.11
         version: link:../internal
@@ -2715,9 +2718,6 @@ importers:
       '@types/ws':
         specifier: ^8.18.1
         version: 8.18.1
-      '@voltagent/core':
-        specifier: ^1.1.22
-        version: link:../core
       tsup:
         specifier: ^8.5.0
         version: 8.5.0(@swc/core@1.5.29)(typescript@5.9.2)
