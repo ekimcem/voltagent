@@ -84,7 +84,7 @@ export default function ExampleProjectPage({
   const seoDescription = `${example.description} - Learn how to build this with VoltAgent. Complete code example with installation and usage instructions.`;
   const repositoryUrl = example.repository;
 
-  const DetailsComponent = ({ children, ...props }: any) => {
+  const DetailsComponent = React.useCallback(({ children, ...props }: any) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [summary, ...content] = React.Children.toArray(children);
 
@@ -103,7 +103,7 @@ export default function ExampleProjectPage({
         <div className="mt-4">{content}</div>
       </details>
     );
-  };
+  }, []);
 
   const mdxComponents = React.useMemo(
     () => ({
