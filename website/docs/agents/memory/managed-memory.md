@@ -24,6 +24,11 @@ npm install @voltagent/voltagent-memory
 
 Get your credentials from [console.voltagent.dev/memory/managed-memory](https://console.voltagent.dev/memory/managed-memory) and set environment variables:
 
+<video controls width="100%">
+  <source src="https://cdn.voltagent.dev/docs/voltagent-managed-memory.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
 ```bash
 # .env
 VOLTAGENT_PUBLIC_KEY=pk_...
