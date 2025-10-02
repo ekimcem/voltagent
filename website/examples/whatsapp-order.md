@@ -35,6 +35,9 @@ npm create voltagent-app@latest -- --example with-whatsapp
 cd with-whatsapp
 ```
 
+You can find the source code of this example [here](https://github.com/VoltAgent/voltagent/tree/main/examples/with-whatsapp).
+
+
 #### Configure environment variables
 
 Create a `.env` file with your API keys:
@@ -168,7 +171,7 @@ The [VoltOps Platform](https://console.voltagent.dev) link opens automatically, 
 
 ![List tool](https://cdn.voltagent.dev/examples/with-whatsapp/1-start-server.png)
 
-### Understanding the Bot Architecture
+### Understanding the Agent Architecture
 
 Let's explore the WhatsApp order AI agent components and understand how they work together.
 
