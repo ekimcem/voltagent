@@ -48,11 +48,11 @@ You should see the VoltAgent server startup message in your terminal:
 ══════════════════════════════════════════════════
   VOLTAGENT SERVER STARTED SUCCESSFULLY
 ══════════════════════════════════════════════════
-  ✓ HTTP Server: http://localhost:3141
+  ✓ HTTP Server:  http://localhost:3141
+  ✓ Swagger UI:   http://localhost:3141/ui
 
-  VoltOps Platform:    https://console.voltagent.dev
+  Test your agents with VoltOps Console: https://console.voltagent.dev
 ══════════════════════════════════════════════════
-[VoltAgent] All packages are up to date
 ```
 
 ### Open the VoltOps Platform
